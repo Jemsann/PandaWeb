@@ -85,10 +85,8 @@ namespace PandaWeb.Controllers
         {
             string docu = context.Documents.Where(d => d.Id == id).Select(d =>d.FileName).First();         
             string content = context.Documents.Where(d => d.Id == id).Select(d => d.DocType).First();
-            string title = context.Documents.Where(d => d.Id == id).Select(d => d.Title).First();
-            
+            string title = context.Documents.Where(d => d.Id == id).Select(d => d.Title).First();           
             return File(docu, content, title);
-
         }
 
         public ActionResult DownloadProtocol(int id)
@@ -96,9 +94,7 @@ namespace PandaWeb.Controllers
             string docu = context.Protocols.Where(d => d.Id == id).Select(d => d.FileName).First();
             string content = context.Protocols.Where(d => d.Id == id).Select(d => d.Type).First();
             string title = context.Protocols.Where(d => d.Id == id).Select(d => d.Name).First();
-
             return File(docu, content, title);
-
         }
     }
 }
