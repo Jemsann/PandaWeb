@@ -2,19 +2,28 @@
 
 @{
     ViewBag.Title = "LG";
-    Layout = "~/Views/Shared/_LayoutEducation.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>LG-Information</h2>
-<p>
-    @Html.ActionLink("Kommande möten","Show")
+<h2>LG-Information</h2>    
     <p>
-    Nästa möte:
+   För att se när nästa möte är, klicka @Html.ActionLink("här", "Index", "Calendar")
     </p>
     <br />
-    -Protokoll från tidigare möten
+    <div name="uppladdning">
+        <table>
+            <tr>
+                <th>Protokoll</th>
+                <th>Datum</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
     <br/>
-    - Medlemmar
+    -Medlemmar
     <br/>
     -Val/[Val]
 </p>
