@@ -145,6 +145,7 @@
     <Compile Include="Models\MyDBContextRepository.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PopulateDBWithEducationPlan.cs" />
+    <Compile Include="Models\Protocol.cs" />
     <Compile Include="Models\ULDocuments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\IndexVM.cs" />
@@ -382,6 +383,7 @@
     <Content Include="Views\Education\CourseDetails.cshtml" />
     <Content Include="Views\Education\OneCourseDetails.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
+    <Content Include="Views\Document\UploadProtocols.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

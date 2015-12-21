@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PandaWeb.Models.Documents>
+﻿@model IEnumerable<PandaWeb.Models.Protocol>
 
 @{
     ViewBag.Title = "LG";
@@ -10,16 +10,25 @@
    För att se när nästa möte är, klicka @Html.ActionLink("här", "Index", "Calendar")
     </p>
     <br />
+@Html.Action("UploadProtocols", "Document")
+
+
     <div name="uppladdning">
         <table>
             <tr>
                 <th>Protokoll</th>
                 <th>Datum</th>
             </tr>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+           
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>                   
+                </tr>
+            }
         </table>
     </div>
     <br/>

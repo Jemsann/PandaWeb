@@ -15,5 +15,6 @@ namespace PandaWeb.Models
         Course GetCourse(int id);
         Course GetDocuments(int id);
         EducationPlan GetEducationPlan(int id);
+        ICollection<Protocol> GetProtocols();
     }
 }

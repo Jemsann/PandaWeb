@@ -23,5 +23,6 @@ namespace PandaWeb.Models
         public DbSet<LG> LG { get; set; }
         public DbSet<Documents> Documents { get; set; }
         public DbSet<ULDocuments> ULDocuments { get; set; }
+        public DbSet<Protocol> Protocols { get; set; }
     }
 }

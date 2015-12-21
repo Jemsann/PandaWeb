@@ -71,6 +71,12 @@ namespace PandaWeb.Models
             }
         }
 
+        ICollection<Protocol> IRepository.GetProtocols()
+        {
+
+            return null;
+        }
+
     //    using (var db = new MyDBContext())
     //        {
     //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);

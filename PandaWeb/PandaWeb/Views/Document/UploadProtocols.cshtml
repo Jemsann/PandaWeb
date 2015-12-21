@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "UploadProtocols";
+    Layout = "~/Views/Shared/_LayoutEducation.cshtml";
+}
+
+<p>Här kan du ladda upp material</p>
+
+@Html.BeginForm("SaveProtocol", "Document", FormMethod.Post , new { enctype = "multipart/form-data" })
+<input type="file" name="Uploaded File" />
+<input type="submit" name="Submit" value="Submit" />
+
