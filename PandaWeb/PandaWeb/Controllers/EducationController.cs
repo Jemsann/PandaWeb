@@ -32,7 +32,7 @@ namespace PandaWeb.Controllers
         public ActionResult LG()
         {
             //ActionResult för LG-Information
-            return View();
+            return View(repository.GetProtocols());
         }
         IRepository repository = new MyDBContextRepository();
 

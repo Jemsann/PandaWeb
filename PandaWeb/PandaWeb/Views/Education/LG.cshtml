@@ -26,7 +26,13 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
-                    </td>                   
+                    </td>   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Added)
+                    </td>  
+                    <td>
+                        @Html.ActionLink("Download", "DownloadProtocol", "Document", new { id=item.Id}, null)
+                    </td>              
                 </tr>
             }
         </table>
@@ -35,5 +41,4 @@
     -Medlemmar
     <br/>
     -Val/[Val]
-</p>
 

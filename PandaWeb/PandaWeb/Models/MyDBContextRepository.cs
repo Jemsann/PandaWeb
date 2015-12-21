@@ -10,8 +10,8 @@ namespace PandaWeb.Models
 {
     public class MyDBContextRepository : IRepository
     {
-       
-       ICollection<IndexVM> IRepository.GetIndexViewModel()
+
+        ICollection<IndexVM> IRepository.GetIndexViewModel()
         {
             using (var db = new MyDBContext())
             {
@@ -25,7 +25,7 @@ namespace PandaWeb.Models
         {
             using (var db = new MyDBContext())
             {
-                var em = db.EducationPlans.SingleOrDefault(ep=>ep.EducationId==id);
+                var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
                 em.Courses = db.Course.Where(c => c.EducationPlanId == em.EducationId).ToArray();
                 var vm = Mapper.Map<EduPlanDetailsVM>(em);
                 return vm;
@@ -36,13 +36,13 @@ namespace PandaWeb.Models
         {
             using (var db = new MyDBContext())
             {
-                var vm = db.Course.Where(cp=>cp.EducationPlanId== id).Select(cp=>cp);
+                var vm = db.Course.Where(cp => cp.EducationPlanId == id).Select(cp => cp);
                 var mm = Mapper.Map<ICollection<IndexVM>>(vm);
                 return mm;
             }
         }
 
-         Course IRepository.GetCourse(int id)
+        Course IRepository.GetCourse(int id)
         {
             using (var db = new MyDBContext())
             {
@@ -50,12 +50,11 @@ namespace PandaWeb.Models
             }
         }
 
-       Course IRepository.GetDocuments(int id)
+        Course IRepository.GetDocuments(int id)
         {
             using (var db = new MyDBContext())
             {
                 var dmodel = db.Course.Where(d => d.Id == id).First();
-                //var dmodel = db.Course.Where(d => d.Name == name).First();
                 return dmodel;
             }
         }
@@ -65,7 +64,7 @@ namespace PandaWeb.Models
             using (var db = new MyDBContext())
             {
                 var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
-                em.ULDocuments = db.ULDocuments.SingleOrDefault(c=>c.EducationPlanId==id);
+                em.ULDocuments = db.ULDocuments.SingleOrDefault(c => c.EducationPlanId == id);
                 var vm = Mapper.Map<EducationPlan>(em);
                 return vm;
             }
@@ -73,17 +72,28 @@ namespace PandaWeb.Models
 
         ICollection<Protocol> IRepository.GetProtocols()
         {
-
-            return null;
+            using (var db = new MyDBContext())
+            {
+                var pro = db.Protocols.Select(pr => pr).ToArray();
+                return pro;
+            }
+        }
+        ICollection<Documents> IRepository.GetSpecificDocuments(int id)
+        {
+            using (var db = new MyDBContext())
+            {
+                var dmodel = db.Documents.Where(d=>d.CourseId== id).ToArray();
+                return dmodel;
+            }
         }
 
-    //    using (var db = new MyDBContext())
-    //        {
-    //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
-    //em.ULDocuments = db.ULDocuments.Where(ul => ul.EducationPlanId == em.EducationId).First();
-    //var vm = Mapper.Map<EducationPlan>(em);
-    //            return vm;
-    //        }
+        //    using (var db = new MyDBContext())
+        //        {
+        //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
+        //em.ULDocuments = db.ULDocuments.Where(ul => ul.EducationPlanId == em.EducationId).First();
+        //var vm = Mapper.Map<EducationPlan>(em);
+        //            return vm;
+        //        }
 
         //ICollection<Documents> IRepository.GetDocuments(int id)
         //{

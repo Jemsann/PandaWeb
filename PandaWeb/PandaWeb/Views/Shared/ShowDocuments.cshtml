@@ -1,21 +1,26 @@
 ﻿@model IEnumerable<PandaWeb.Models.Documents>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@{
+ Layout = "~/Views/Shared/_LayoutEducation.cshtml";
+}
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Document)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model=>model.DocType)
+        </th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FileName)
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocType)
             </td>
             <td>
                 @Html.ActionLink("Download", "DownloadFile", new { id = item.Id })

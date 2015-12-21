@@ -63,6 +63,6 @@
 <div>
     <p>Här kan du ladda upp dokument</p>
     <input type="button" title="UploadDocuments" value="Ladda upp dokument" onclick="location.href='@Url.Action("Uploaddocuments", "Document", new {Model.Id })'" />
-    <input type="button" title="ShowDocuments" value="Se dokument" onclick="location.href='@Url.Action("Showdocuments", "Document")'" />
+    <input type="button" title="ShowDocuments" value="Se dokument" onclick="location.href='@Url.Action("Showdocuments", "Document", new {Model.Id })'" />
 </div>
 
