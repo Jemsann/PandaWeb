@@ -1,4 +1,4 @@
-﻿@model PandaWeb.ViewModels.EduPlanDetailsVM
+﻿@model PandaWeb.Models.EducationPlan
 
 @{
     ViewBag.Title = "Edit";
@@ -10,11 +10,15 @@
 <hr />
 <br />
 <br />
+
 <div name="info">
     <p>
         Den här utbildningen startar @Html.DisplayFor(model => model.StartDate) och avslutas @Html.DisplayFor(model => model.EndDate)
       <br />  Kurser i det här programmet:
         @Html.Action("CourseDetails")  </p>
+</div>
+<div name="UP">
+    @Html.ActionLink("Utbildningsplan","UPSystemutveckling", "Education", new{ id=Model.EducationId }, null)
 </div>
 
 

@@ -13,9 +13,7 @@ namespace PandaWeb.Controllers
         IRepository repository = new MyDBContextRepository();
         MyDBContext context = new MyDBContext();
         public ActionResult UploadDocuments(int id)
-        {
-            //testar
-            
+        {     
             return PartialView(repository.GetDocuments(id));
         }
 

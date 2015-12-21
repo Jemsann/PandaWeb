@@ -60,6 +60,25 @@ namespace PandaWeb.Models
             }
         }
 
+        EducationPlan IRepository.GetEducationPlan(int id)
+        {
+            using (var db = new MyDBContext())
+            {
+                var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
+                em.ULDocuments = db.ULDocuments.SingleOrDefault(c=>c.EducationPlanId==id);
+                var vm = Mapper.Map<EducationPlan>(em);
+                return vm;
+            }
+        }
+
+    //    using (var db = new MyDBContext())
+    //        {
+    //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
+    //em.ULDocuments = db.ULDocuments.Where(ul => ul.EducationPlanId == em.EducationId).First();
+    //var vm = Mapper.Map<EducationPlan>(em);
+    //            return vm;
+    //        }
+
         //ICollection<Documents> IRepository.GetDocuments(int id)
         //{
         //    using (var db = new MyDBContext())

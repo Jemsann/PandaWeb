@@ -45,11 +45,17 @@ namespace PandaWeb.Models
             course.Name = "OO1";
             course.EducationPlanId = 2;
 
-            Course course2 = new Course();
-            course.Name = "OO2";
-            course.EducationPlanId = 2;
-
             context.Course.Add(course);
+            context.SaveChanges();
+        }
+
+        public void CreateCourseTwo()
+        {
+            Course course2 = new Course();
+            course2.Name = "OO2";
+            course2.EducationPlanId = 2;
+
+            context.Course.Add(course2);
             context.SaveChanges();
         }
     }

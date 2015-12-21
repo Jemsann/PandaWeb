@@ -26,5 +26,8 @@ namespace PandaWeb.Models
 
         //länktabell till kurser
         public ICollection<Course> Courses { get; set; }
+
+        //länktabell till Utbildningsplan
+        public ULDocuments ULDocuments { get; set; }
     }
 }

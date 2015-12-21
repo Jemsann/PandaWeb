@@ -24,29 +24,37 @@ namespace PandaWeb.Controllers
         //I mappen Global.asax.cs kommentera bort Database.SetInitializer
 
         // GET: UP
-        public ActionResult UPSystemutveckling()
+        public ActionResult UPSystemutveckling(int id)
         {
-            return View();
+            return View(repository.GetEducationPlan(id));
         }
 
         public ActionResult LG()
         {
-            //testar
             //ActionResult för LG-Information
             return View();
         }
         IRepository repository = new MyDBContextRepository();
 
+        //Vy för utbildningar
         public ActionResult Details(int id)
         {    
-            return PartialView(repository.GetEduPlansDetailsViewModel(id));
+            return PartialView(repository.GetEducationPlan(id));
         }
 
+        //public ActionResult Details(int id)
+        //{
+        //    return PartialView(repository.GetEduPlansDetailsViewModel(id));
+        //}
+
+
+        //Vy för alla kurser för specifik utbildning
         public ActionResult CourseDetails(int id)
         {
             return PartialView(repository.GetCoursesDetailsViewModel(id));
         }
 
+        //Vy för specifik kurs
         public ActionResult OneCourseDetails(int id)
         {
             return PartialView(repository.GetCourse(id));
