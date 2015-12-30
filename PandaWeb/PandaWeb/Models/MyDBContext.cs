@@ -24,5 +24,6 @@ namespace PandaWeb.Models
         public DbSet<Documents> Documents { get; set; }
         public DbSet<ULDocuments> ULDocuments { get; set; }
         public DbSet<Protocol> Protocols { get; set; }
+        public DbSet<Manager> Courses { get; set; }
     }
 }
