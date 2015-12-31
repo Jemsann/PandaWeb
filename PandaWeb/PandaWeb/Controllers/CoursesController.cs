@@ -10,107 +10,121 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
-    public class ManagersController : Controller
+    public class CoursesController : Controller
     {
         private MyDBContext db = new MyDBContext();
 
-        // GET: Managers
+        // GET: Courses
         public ActionResult Index()
         {
-            return View(db.Courses.ToList());
+            return View(db.Course.ToList());
         }
 
-        // GET: Managers/Details/5
+        // GET: Courses/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Manager manager = db.Courses.Find(id);
-            if (manager == null)
+            Course course = db.Course.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(manager);
+            return View(course);
         }
 
-        // GET: Managers/Create
+        // GET: Courses/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Managers/Create
+        // POST: Courses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CourseID,Course,StartDate,Lenght,Teacher")] Manager manager)
+        public ActionResult Create([Bind(Include = "Id,Name,EducationPlanId,CoursePlan,EarlierMaterial,OtherMaterial,TeacherId")] Course course)
         {
             if (ModelState.IsValid)
             {
-                db.Courses.Add(manager);
+                db.Course.Add(course);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(manager);
+            return View(course);
         }
 
-        // GET: Managers/Edit/5
-        public ActionResult Edit(int? id)
+		//Skapar dropdown för koppling av kurser till utbildningar
+		public static List<SelectListItem> GetDropDown()
+		{
+			var listItems = new List<SelectListItem>();
+			MyDBContext context = new MyDBContext();
+			var all = from e in context.EducationPlans select e;
+
+			foreach (var item in all)
+			{
+				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+			}
+			return listItems;
+		}
+
+		// GET: Courses/Edit/5
+		public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Manager manager = db.Courses.Find(id);
-            if (manager == null)
+            Course course = db.Course.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(manager);
+            return View(course);
         }
 
-        // POST: Managers/Edit/5
+        // POST: Courses/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CourseID,Course,StartDate,Lenght,Teacher")] Manager manager)
+        public ActionResult Edit([Bind(Include = "Id,Name,EducationPlanId,CoursePlan,EarlierMaterial,OtherMaterial,TeacherId")] Course course)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(manager).State = EntityState.Modified;
+                db.Entry(course).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(manager);
+            return View(course);
         }
 
-        // GET: Managers/Delete/5
+        // GET: Courses/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Manager manager = db.Courses.Find(id);
-            if (manager == null)
+            Course course = db.Course.Find(id);
+            if (course == null)
             {
                 return HttpNotFound();
             }
-            return View(manager);
+            return View(course);
         }
 
-        // POST: Managers/Delete/5
+        // POST: Courses/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Manager manager = db.Courses.Find(id);
-            db.Courses.Remove(manager);
+            Course course = db.Course.Find(id);
+            db.Course.Remove(course);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

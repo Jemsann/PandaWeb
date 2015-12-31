@@ -1,0 +1,66 @@
+﻿@model PandaWeb.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EducationPlanId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EducationPlanId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoursePlan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoursePlan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EarlierMaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EarlierMaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherMaterial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherMaterial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

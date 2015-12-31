@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Net;
 
 namespace PandaWeb.Controllers
 {
@@ -15,11 +16,16 @@ namespace PandaWeb.Controllers
 
         public ActionResult UploadDocuments(int id)
         {
-            return PartialView(repository.GetDocuments(id));
+			if (id == 0)
+			{
+				return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+			}
+			return PartialView(repository.GetDocuments(id));
         }
 
         public ActionResult UploadProtocols()
         {
+
             return PartialView();
         }
 

@@ -1,44 +1,44 @@
 ﻿@model IEnumerable<PandaWeb.Models.Protocol>
-
 @{
     ViewBag.Title = "LG";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutEducation.cshtml";
 }
 
-<h2>LG-Information</h2>    
-    <p>
-   För att se när nästa möte är, klicka @Html.ActionLink("här", "Index", "Calendar")
-    </p>
-    <br />
-@Html.Action("UploadProtocols", "Document")
+<h2>LG-Information</h2>
+<p>
+	För att se när nästa möte är, klicka @Html.ActionLink("här", "Index", "Calendar")
+</p>
+<br />
+<div>
+	Rätta till nedan actionlink!!!
+	@Html.ActionLink("UploadProtocols", "UploadDocuments", "Document", new { id=1}, null)
+</div>
+<div name="uppladdning">
+	<table>
+		<tr>
+			<th>Protokoll</th>
+			<th>Datum</th>
+		</tr>
 
 
-    <div name="uppladdning">
-        <table>
-            <tr>
-                <th>Protokoll</th>
-                <th>Datum</th>
-            </tr>
-           
-
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>   
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Added)
-                    </td>  
-                    <td>
-                        @Html.ActionLink("Download", "DownloadProtocol", "Document", new { id=item.Id}, null)
-                    </td>              
-                </tr>
-            }
-        </table>
-    </div>
-    <br/>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Added)
+				</td>
+				<td>
+					@Html.ActionLink("Download", "DownloadProtocol", "Document", new { id = item.Id }, null)
+				</td>
+			</tr>
+		}
+	</table>
+</div>
+<br />
     -Medlemmar
-    <br/>
+<br />
     -Val/[Val]
 

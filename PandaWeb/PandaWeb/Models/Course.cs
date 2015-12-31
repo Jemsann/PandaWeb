@@ -20,7 +20,10 @@ namespace PandaWeb.Models
        
         public int EducationPlanId { get; set; }
 
-        public string CoursePlan { get; set; }
+		public DateTime StartDate { get; set; }
+		public DateTime EndDate { get; set; }
+
+		public string CoursePlan { get; set; }
         public string EarlierMaterial { get; set; }
         public string OtherMaterial { get; set; }
 

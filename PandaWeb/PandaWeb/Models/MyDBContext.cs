@@ -4,12 +4,12 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PandaWeb.Models
 {
     public class MyDBContext : DbContext
-    {
+	{
         public MyDBContext() : base("MyDBContext")
         {
 
@@ -24,6 +24,6 @@ namespace PandaWeb.Models
         public DbSet<Documents> Documents { get; set; }
         public DbSet<ULDocuments> ULDocuments { get; set; }
         public DbSet<Protocol> Protocols { get; set; }
-        public DbSet<Manager> Courses { get; set; }
+    
     }
 }

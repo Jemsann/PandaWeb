@@ -87,6 +87,9 @@ namespace PandaWeb.Models
             }
         }
 
+
+
+
         //    using (var db = new MyDBContext())
         //        {
         //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);

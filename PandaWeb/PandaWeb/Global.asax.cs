@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Web.Optimization;
 using System.Web.Routing;
 
@@ -20,9 +21,9 @@ namespace PandaWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //Database.SetInitializer(new DropCreateDatabaseAlways<MyDBContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MyDBContext>());
             //Database.SetInitializer(new DropCreateDatabaseAlways<CalendarContext>());
-            Database.SetInitializer(new MySqlInitializer());
+            //Database.SetInitializer(new MySqlInitializer());
 
             Mapper.CreateMap<EducationPlan, IndexVM>();
             Mapper.CreateMap<EducationPlan, EduPlanDetailsVM>();
