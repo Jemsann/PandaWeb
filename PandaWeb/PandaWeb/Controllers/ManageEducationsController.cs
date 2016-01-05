@@ -15,6 +15,8 @@ namespace PandaWeb.Controllers
         private MyDBContext db = new MyDBContext();
 
         // GET: ManageEducation
+      //[Authorize(Roles = "admin")] Detta ska sedan koppla så att bara användare med rättigheter
+       //kan använda metoderna 
         public ActionResult Index()
         {
             return View(db.EducationPlans.ToList());
