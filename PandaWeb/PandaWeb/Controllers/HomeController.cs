@@ -9,8 +9,10 @@ using System.Web.Mvc;
 
 namespace PandaWeb.Controllers
 {
+   [AllowAnonymous]
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             return View();
@@ -22,7 +24,7 @@ namespace PandaWeb.Controllers
             var all = (from e in context.EducationPlans select e);
             return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
         }
-
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

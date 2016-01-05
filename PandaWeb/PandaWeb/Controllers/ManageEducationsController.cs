@@ -10,11 +10,14 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+    [Authorize]
     public class ManageEducationController : Controller
     {
+
         private MyDBContext db = new MyDBContext();
 
         // GET: ManageEducation
+        [Authorize(Roles = "A")]
         public ActionResult Index()
         {
             return View(db.EducationPlans.ToList());

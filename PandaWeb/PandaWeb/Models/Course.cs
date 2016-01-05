@@ -15,13 +15,15 @@ namespace PandaWeb.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ett kurs namn krävs")]
+        [StringLength(50, ErrorMessage = "{0} måste innehålla minst {2} tecken.", MinimumLength = 4)]
         public string Name { get; set; }
        
         public int EducationPlanId { get; set; }
-
-		public DateTime StartDate { get; set; }
-		public DateTime EndDate { get; set; }
+        [Required(ErrorMessage = "Ett Start Datum krävs.")]
+        public DateTime StartDate { get; set; }
+        [Required(ErrorMessage = "Ett Slut Datum krävs.")]
+        public DateTime EndDate { get; set; }
 
 		public string CoursePlan { get; set; }
         public string EarlierMaterial { get; set; }
@@ -31,6 +33,7 @@ namespace PandaWeb.Models
         public ICollection<Student> Students { get; set; }
 
         //Läraren finns inte i systemet, existerar bara som en prop på en kurs?
+        [Required(ErrorMessage = "Ett lärar ID krävs.")]
         public string TeacherId { get; set; }
 
         //länktabell till utbildning 

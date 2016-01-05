@@ -26,7 +26,19 @@
                     <li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Om Oss", "About", "Home")</li>
-
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("A"))
+                            {
+                    <li>@Html.ActionLink("Managment", "Index", "ManageEducation")</li>
+                        }
+                    <li>@Html.ActionLink("Logut", "Logout", "Account")</li>
+                    <li><a href="#">Welcome @User.Identity.Name</a></li>
+                    }
+                    else
+                    {
+                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    }
                 </ul>
             </div>
         </div>
