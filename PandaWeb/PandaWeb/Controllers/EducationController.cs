@@ -12,6 +12,7 @@ using AutoMapper;
 
 namespace PandaWeb.Controllers
 {
+    
     public class EducationController : Controller
     {
         MyDBContext context = new MyDBContext();

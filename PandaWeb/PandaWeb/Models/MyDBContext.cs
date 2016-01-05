@@ -14,7 +14,7 @@ namespace PandaWeb.Models
         {
 
         }
-
+       
         public DbSet<EducationPlan> EducationPlans { get; set; }
         public DbSet<Course> Course { get; set; }
         public DbSet<Person> Person { get; set; }

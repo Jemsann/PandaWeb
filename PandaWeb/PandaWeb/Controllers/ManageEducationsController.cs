@@ -10,13 +10,14 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+    [Authorize]
     public class ManageEducationController : Controller
     {
+
         private MyDBContext db = new MyDBContext();
 
         // GET: ManageEducation
-      //[Authorize(Roles = "admin")] Detta ska sedan koppla så att bara användare med rättigheter
-       //kan använda metoderna 
+        [Authorize(Roles = "A")]
         public ActionResult Index()
         {
             return View(db.EducationPlans.ToList());
