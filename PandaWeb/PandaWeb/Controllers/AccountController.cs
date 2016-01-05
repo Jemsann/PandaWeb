@@ -27,7 +27,7 @@ namespace PandaWeb.Controllers
                 using (UserDbEntities db = new UserDbEntities())
                 {
                     db.User.Add(U);
-                    db.SaveChanges();
+                    //db.SaveChanges();
                     ModelState.Clear();
                     U = null;
                     ViewBag.Message = "Succesfully Regestretion done.";
