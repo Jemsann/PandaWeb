@@ -29,7 +29,7 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("A"))
-                            {
+                              {
                     <li>@Html.ActionLink("Managment", "Index", "ManageEducation")</li>
                         }
                     <li>@Html.ActionLink("Logut", "Logout", "Account")</li>

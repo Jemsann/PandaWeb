@@ -221,23 +221,23 @@
     <Compile Include="Models\PopulateDBWithEducationPlan.cs" />
     <Compile Include="Models\Protocol.cs" />
     <Compile Include="Models\ULDocuments.cs" />
-    <Compile Include="Models\User.cs">
-      <DependentUpon>UserModel.tt</DependentUpon>
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>UsersModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserModel.Context.cs">
+    <Compile Include="Models\UsersModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.Context.tt</DependentUpon>
+      <DependentUpon>UsersModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserModel.cs">
+    <Compile Include="Models\UsersModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.tt</DependentUpon>
+      <DependentUpon>UsersModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserModel.Designer.cs">
+    <Compile Include="Models\UsersModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UserModel.edmx</DependentUpon>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="MyRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,6 +248,7 @@
     <Compile Include="Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RequriedAttribute.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\IndexVM.cs" />
     <Compile Include="ViewModels\EduPlanDetailsVM.cs" />
@@ -269,24 +270,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <EntityDeploy Include="Models\UserModel.edmx">
+    <EntityDeploy Include="Models\UsersModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UserModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>UsersModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\UserModel.edmx.diagram">
-      <DependentUpon>UserModel.edmx</DependentUpon>
+    <Content Include="Models\UsersModel.edmx.diagram">
+      <DependentUpon>UsersModel.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\Panda.pubxml" />
     <Content Include="LogIn.aspx" />
-    <Content Include="Models\UserModel.Context.tt">
+    <Content Include="Models\UsersModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserModel.edmx</DependentUpon>
-      <LastGenOutput>UserModel.Context.cs</LastGenOutput>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+      <LastGenOutput>UsersModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\UserModel.tt">
+    <Content Include="Models\UsersModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UserModel.edmx</DependentUpon>
-      <LastGenOutput>UserModel.cs</LastGenOutput>
+      <DependentUpon>UsersModel.edmx</DependentUpon>
+      <LastGenOutput>UsersModel.cs</LastGenOutput>
     </Content>
     <Content Include="Register.aspx" />
     <Content Include="Scripts\bootstrap.js" />

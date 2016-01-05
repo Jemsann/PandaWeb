@@ -13,10 +13,10 @@ namespace PandaWeb.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UserDbEntities : DbContext
+    public partial class UsersDbEntities : DbContext
     {
-        public UserDbEntities()
-            : base("name=UserDbEntities")
+        public UsersDbEntities()
+            : base("name=UsersDbEntities")
         {
         }
     
@@ -25,6 +25,6 @@ namespace PandaWeb.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

@@ -20,13 +20,14 @@ namespace PandaWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(User U)
+        public ActionResult Register(Users U)
         {
               if (ModelState.IsValid)
             {
-                using (UserDbEntities db = new UserDbEntities())
+                using (UsersDbEntities db = new UsersDbEntities())
                 {
-                    db.User.Add(U);
+                    U.Role = "S";
+                    db.Users.Add(U);
                     db.SaveChanges();
                     ModelState.Clear();
                     U = null;
@@ -41,10 +42,10 @@ namespace PandaWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(User U)
+        public ActionResult Login(Users U)
         {
-            UserDbEntities db = new UserDbEntities();
-            var count = db.User.Where(x => x.UserName == U.UserName && x.Password == U.Password).Count();
+            UsersDbEntities db = new UsersDbEntities();
+            var count = db.Users.Where(x => x.Username == U.Username && x.Password == U.Password).Count();
             if (count == 0)
             {
                 ViewBag.Msg = "Invalid User";
@@ -52,7 +53,7 @@ namespace PandaWeb.Controllers
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(U.UserName, false);
+                FormsAuthentication.SetAuthCookie(U.Username, false);
                 return RedirectToAction("Index", "Home");
             }
          
