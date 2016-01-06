@@ -10,6 +10,7 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+	[Authorize(Roles ="A")]
     public class CoursesController : Controller
     {
         private MyDBContext db = new MyDBContext();
