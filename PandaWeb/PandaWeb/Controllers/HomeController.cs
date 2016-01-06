@@ -18,14 +18,14 @@ namespace PandaWeb.Controllers
 			return View();
 		}
 
-		//public ActionResult Edu()
-		//{
-		//	MyDBContext context = new MyDBContext();
-		//	var all = (from e in context.EducationPlans select e);
-		//	return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
-		//}
+        public ActionResult Edu()
+        {
+            MyDBContext context = new MyDBContext();
+            var all = (from e in context.EducationPlans select e);
+            return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
+        }
 
-		public ActionResult About()
+        public ActionResult About()
 		{
 			ViewBag.Message = "Your application description page.";
 
