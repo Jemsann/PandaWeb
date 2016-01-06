@@ -24,7 +24,6 @@ namespace PandaWeb
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             Database.SetInitializer(new DropCreateDatabaseAlways<MyDBContext>());
             Database.SetInitializer(new DropCreateDatabaseAlways<CalendarContext>());
-            Database.SetInitializer(new MySqlInitializer());
 
             Mapper.CreateMap<EducationPlan, IndexVM>();
             Mapper.CreateMap<EducationPlan, EduPlanDetailsVM>();

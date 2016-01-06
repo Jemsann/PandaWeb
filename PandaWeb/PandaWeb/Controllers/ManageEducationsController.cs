@@ -10,7 +10,7 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="A")]
     public class ManageEducationController : Controller
     {
 

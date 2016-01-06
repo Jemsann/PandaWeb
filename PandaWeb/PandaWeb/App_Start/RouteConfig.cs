@@ -16,13 +16,14 @@ namespace PandaWeb
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }, 
+				namespaces: new[] { "PandaWeb" }
             );
 
-            routes.MapRoute(
-                name: "Education",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Education", action = "Backendutveckling", id = "" });
+            //routes.MapRoute(
+            //    name: "Education",
+            //    url: "{controller}/{action}/{id}",
+            //    defaults: new { controller = "Education", action = "Backendutveckling", id = "" });
         }
     }
 }
