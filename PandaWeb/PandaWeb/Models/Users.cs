@@ -18,9 +18,9 @@ namespace PandaWeb.Models
         public int UserID { get; set; }
         [Requried(ErrorMessage = "Please provide username", AllowEmptyStrings = false)]
         public string Username { get; set; }
-        [Requried(ErrorMessage = "Please provide username", AllowEmptyStrings = false)]
+        [Requried(ErrorMessage = "Please provide Password", AllowEmptyStrings = false)]
         [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]
-        [StringLength(50, MinimumLength = 8, ErrorMessage = "Password must be 8 char long.")]
+        [StringLength(50, MinimumLength = 8, ErrorMessage = "Password must be atleast 8 char long.")]
         public string Password { get; set; }
         [System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage = "Confirm password does not match.")]
         [DataType(System.ComponentModel.DataAnnotations.DataType.Password)]

@@ -32,11 +32,12 @@
                               {
                     <li>@Html.ActionLink("Managment", "Index", "ManageEducation")</li>
                         }
-                    <li>@Html.ActionLink("Logut", "Logout", "Account")</li>
+                    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     <li><a href="#">Welcome @User.Identity.Name</a></li>
                     }
                     else
                     {
+                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     }
                 </ul>
