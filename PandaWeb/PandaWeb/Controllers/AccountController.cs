@@ -31,7 +31,7 @@ namespace PandaWeb.Controllers
                     db.SaveChanges();
                     ModelState.Clear();
                     U = null;
-                    ViewBag.Message = "Succesfully Regestretion done.";
+                    ViewBag.Message = "Succesfully Registration Done!";
                 }
             }
             return View(U); 
