@@ -49,7 +49,7 @@ namespace PandaWeb
 
         public override string[] GetRolesForUser(string username)
         {
-            UsersDbEntities db = new UsersDbEntities();
+            MyDBContext db = new MyDBContext();
             string s = db.Users.Where(x => x.Username == username).FirstOrDefault().Role;
             string[] resultS = { s };
             return resultS;

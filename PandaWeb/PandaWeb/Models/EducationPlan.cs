@@ -12,7 +12,7 @@ namespace PandaWeb.Models
         [Key]
         public int EducationId { get; set; }
         [Required(ErrorMessage = "Ett namn för Utbildningen krävs")]
-        [StringLength(50, ErrorMessage = "{0} måste innehålla minst {2} tecken.", MinimumLength = 4)]
+       // [StringLength(50, ErrorMessage = "{0} måste innehålla minst {2} tecken.", MinimumLength = 4)]
         public string Name { get; set; }
 
 

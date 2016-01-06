@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace PandaWeb.Models
 {
@@ -17,6 +18,7 @@ namespace PandaWeb.Models
         EducationPlan GetEducationPlan(int id);
         ICollection<Protocol> GetProtocols();
         ICollection<Documents> GetSpecificDocuments(int id);
+		List<SelectListItem> GetDropDown();
 
-    }
+	}
 }

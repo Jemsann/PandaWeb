@@ -59,19 +59,25 @@ namespace PandaWeb.Controllers
             return View(course);
         }
 
-		//Skapar dropdown för koppling av kurser till utbildningar
 		public static List<SelectListItem> GetDropDown()
 		{
-			var listItems = new List<SelectListItem>();
-			MyDBContext context = new MyDBContext();
-			var all = from e in context.EducationPlans select e;
-
-			foreach (var item in all)
-			{
-				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
-			}
-			return listItems;
+			IRepository repo = new MyDBContextRepository();
+			return repo.GetDropDown();
 		}
+
+		//Skapar dropdown för koppling av kurser till utbildningar
+		//public static List<SelectListItem> GetDropDown()
+		//{
+		//	var listItems = new List<SelectListItem>();
+		//	MyDBContext context = new MyDBContext();
+		//	//var all = from e in context.EducationPlans select e;
+		//	var allL = context.EducationPlans.ToArray();
+		//	foreach (var item in allL)
+		//	{
+		//		listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+		//	}
+		//	return listItems;
+		//}
 
 		// GET: Courses/Edit/5
 		public ActionResult Edit(int? id)

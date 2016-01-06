@@ -13,7 +13,7 @@ namespace PandaWeb.Controllers
     [Authorize(Roles ="A")]
     public class UsersController : Controller
     {
-        private UsersDbEntities db = new UsersDbEntities();
+        private MyDBContext db = new MyDBContext();
 
         // GET: Users
         public ActionResult Index()
