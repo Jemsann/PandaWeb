@@ -47,7 +47,7 @@ namespace PandaWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,Username,Password,Fullname,Email,Role")] Users users)
+        public ActionResult Create([Bind(Include = "UserID,Username,Password,ConfirmPassword,Fullname,Email,Role")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace PandaWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,Username,Password,Fullname,Email,Role")] Users users)
+        public ActionResult Edit([Bind(Include = "UserID,Username,Password,ConfirmPassword,Fullname,Email,Role")] Users users)
         {
             if (ModelState.IsValid)
             {
