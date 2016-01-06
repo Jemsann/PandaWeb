@@ -10,110 +10,108 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
-    [Authorize(Roles = "A")]
-    public class ManageEducationController : Controller
+    [Authorize(Roles ="A")]
+    public class UsersController : Controller
     {
+        private UsersDbEntities db = new UsersDbEntities();
 
-        private MyDBContext db = new MyDBContext();
-
-        // GET: ManageEducation
-
+        // GET: Users
         public ActionResult Index()
         {
-            return View(db.EducationPlans.ToList());
+            return View(db.Users.ToList());
         }
 
-        // GET: ManageEducation/Details/5
+        // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EducationPlan educationPlan = db.EducationPlans.Find(id);
-            if (educationPlan == null)
+            Users users = db.Users.Find(id);
+            if (users == null)
             {
                 return HttpNotFound();
             }
-            return View(educationPlan);
+            return View(users);
         }
 
-        // GET: ManageEducation/Create
+        // GET: Users/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ManageEducation/Create
+        // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EducationId,Name,StartDate,EndDate,PaceOfStudy,FormOfStudy")] EducationPlan educationPlan)
+        public ActionResult Create([Bind(Include = "UserID,Username,Password,Fullname,Email,Role")] Users users)
         {
             if (ModelState.IsValid)
             {
-                db.EducationPlans.Add(educationPlan);
+                db.Users.Add(users);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(educationPlan);
+            return View(users);
         }
 
-        // GET: ManageEducation/Edit/5
+        // GET: Users/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EducationPlan educationPlan = db.EducationPlans.Find(id);
-            if (educationPlan == null)
+            Users users = db.Users.Find(id);
+            if (users == null)
             {
                 return HttpNotFound();
             }
-            return View(educationPlan);
+            return View(users);
         }
 
-        // POST: ManageEducation/Edit/5
+        // POST: Users/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EducationId,Name,StartDate,EndDate,PaceOfStudy,FormOfStudy")] EducationPlan educationPlan)
+        public ActionResult Edit([Bind(Include = "UserID,Username,Password,Fullname,Email,Role")] Users users)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(educationPlan).State = System.Data.Entity.EntityState.Modified;
+                db.Entry(users).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(educationPlan);
+            return View(users);
         }
 
-        // GET: ManageEducation/Delete/5
+        // GET: Users/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            EducationPlan educationPlan = db.EducationPlans.Find(id);
-            if (educationPlan == null)
+            Users users = db.Users.Find(id);
+            if (users == null)
             {
                 return HttpNotFound();
             }
-            return View(educationPlan);
+            return View(users);
         }
 
-        // POST: ManageEducation/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            EducationPlan educationPlan = db.EducationPlans.Find(id);
-            db.EducationPlans.Remove(educationPlan);
+            Users users = db.Users.Find(id);
+            db.Users.Remove(users);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

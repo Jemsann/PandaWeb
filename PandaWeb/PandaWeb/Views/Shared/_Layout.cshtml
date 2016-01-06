@@ -6,6 +6,9 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @{
+        var path = PandaWeb.Controllers.CoursesController.GetDropDown();
+    }
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -20,8 +23,9 @@
                 @Html.ActionLink("Panda", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
 
             </div>
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">                    
+                <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("LG-information", "LG", "Education")</li>
                     <li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
@@ -29,18 +33,32 @@
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("A"))
-                              {
-                    <li>@Html.ActionLink("Managment", "Index", "ManageEducation")</li>
+                        {
+
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Management
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>@Html.ActionLink("Utbildningar", "Index", "ManageEducation")</li>
+                                    <li>@Html.ActionLink("Kurser", "Index", "Courses")</li>
+                                    <li>@Html.ActionLink("Användare", "Index", "Users")</li>
+                           
+                        </ul>
+                         </li>
                         }
                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     <li><a href="#">Welcome @User.Identity.Name</a></li>
                     }
                     else
                     {
+
                     <li>@Html.ActionLink("Register", "Register", "Account")</li>
+
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     }
-                </ul>
+                    
             </div>
         </div>
     </div>
