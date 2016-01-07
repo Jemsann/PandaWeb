@@ -24,7 +24,7 @@ namespace PandaWeb.Controllers
         {
               if (ModelState.IsValid)
             {
-                using (UsersDbEntities db = new UsersDbEntities())
+                using (MyDBContext db = new MyDBContext())
                 {
                     U.Role = "S";
                     db.Users.Add(U);
@@ -44,7 +44,7 @@ namespace PandaWeb.Controllers
         [HttpPost]
         public ActionResult Login(Users U)
         {
-            UsersDbEntities db = new UsersDbEntities();
+            MyDBContext db = new MyDBContext();
             var count = db.Users.Where(x => x.Username == U.Username && x.Password == U.Password).Count();
             if (count == 0)
             {

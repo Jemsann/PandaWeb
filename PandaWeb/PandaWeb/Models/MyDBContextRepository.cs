@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using PandaWeb.Models;
+using System.Web.Mvc;
 
 namespace PandaWeb.Models
 {
@@ -87,36 +88,48 @@ namespace PandaWeb.Models
             }
         }
 
+		List<SelectListItem> IRepository.GetDropDown()
+		{
+			var listItems = new List<SelectListItem>();
+			MyDBContext context = new MyDBContext();
+			var all = from e in context.EducationPlans select e;
+			//var all = context.EducationPlans.ToArray();
+			foreach (var item in all)
+			{
+				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+			}
+			return listItems;
+		}
 
 
 
-        //    using (var db = new MyDBContext())
-        //        {
-        //            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
-        //em.ULDocuments = db.ULDocuments.Where(ul => ul.EducationPlanId == em.EducationId).First();
-        //var vm = Mapper.Map<EducationPlan>(em);
-        //            return vm;
-        //        }
+		//    using (var db = new MyDBContext())
+		//        {
+		//            var em = db.EducationPlans.SingleOrDefault(ep => ep.EducationId == id);
+		//em.ULDocuments = db.ULDocuments.Where(ul => ul.EducationPlanId == em.EducationId).First();
+		//var vm = Mapper.Map<EducationPlan>(em);
+		//            return vm;
+		//        }
 
-        //ICollection<Documents> IRepository.GetDocuments(int id)
-        //{
-        //    using (var db = new MyDBContext())
-        //    {
-        //        var dmodel = db.Documents.Where(d => d.CourseId == id).Select(d => d);
-        //        var cd = Mapper.Map<ICollection<Documents>>(dmodel);
-        //        return cd;
-        //    }
-        //}
+		//ICollection<Documents> IRepository.GetDocuments(int id)
+		//{
+		//    using (var db = new MyDBContext())
+		//    {
+		//        var dmodel = db.Documents.Where(d => d.CourseId == id).Select(d => d);
+		//        var cd = Mapper.Map<ICollection<Documents>>(dmodel);
+		//        return cd;
+		//    }
+		//}
 
 
-        //IndexVM IRepository.GetCoursesDetailsViewModel(int id)
-        //{
-        //    using (var db = new MyDBContext())
-        //    {
-        //        var vm = db.Course.SingleOrDefault(cp => cp.EducationPlanId == id);
-        //        var mm = Mapper.Map<IndexVM>(vm);
-        //        return mm;
-        //    }
-        //}
-    }
+		//IndexVM IRepository.GetCoursesDetailsViewModel(int id)
+		//{
+		//    using (var db = new MyDBContext())
+		//    {
+		//        var vm = db.Course.SingleOrDefault(cp => cp.EducationPlanId == id);
+		//        var mm = Mapper.Map<IndexVM>(vm);
+		//        return mm;
+		//    }
+		//}
+	}
 }
