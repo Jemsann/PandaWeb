@@ -64,5 +64,13 @@ namespace PandaWeb.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Lgusers()
+        {
+            MyDBContext db = new MyDBContext();
+            var role = (from r in db.Users where r.Role.Contains("L") select r).ToList();
+            return View(role);
+
+        }
     } 
 }

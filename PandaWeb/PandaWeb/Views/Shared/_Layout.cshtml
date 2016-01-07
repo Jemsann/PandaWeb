@@ -28,24 +28,29 @@
                 <ul class="nav navbar-nav">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        if (User.IsInRole("S") || User.IsInRole("A"))
+                        if (User.IsInRole("S") || User.IsInRole("A") || User.IsInRole("L"))
                         {
                             <li><a href="#">Välkommen @User.Identity.Name</a></li>
                             @*<li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>*@
-                            <li>@Html.ActionLink("LG-information", "LG", "Education")</li>
-                            if (User.IsInRole("A"))
-                            {
-                                <li>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        Administrera
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>@Html.ActionLink("Utbildningar", "Index", "ManageEducation")</li>
-                                        <li>@Html.ActionLink("Kurser", "Index", "Courses")</li>
-                                        <li>@Html.ActionLink("Användare", "Index", "Users")</li>
-                                    </ul>
-                                </li>
+                    if (User.IsInRole("L") || User.IsInRole("A"))
+                    {
+                        <li>@Html.ActionLink("Ledningsgruppen", "Lgusers", "Account")</li>
+                        <li>@Html.ActionLink("LG-information", "LG", "Education")</li>
+                    }
+
+                    if (User.IsInRole("A"))
+                    {
+                        <li>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Administrera
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("Utbildningar", "Index", "ManageEducation")</li>
+                                <li>@Html.ActionLink("Kurser", "Index", "Courses")</li>
+                                <li>@Html.ActionLink("Användare", "Index", "Users")</li>
+                            </ul>
+                        </li>
 
                             }
 
