@@ -28,14 +28,14 @@ namespace PandaWeb.Controllers
 
 		public ActionResult About()
 		{
-			ViewBag.Message = "Your application description page.";
+			ViewBag.Message = "Om PandaWebb.";
 
 			return View();
 		}
 
 		public ActionResult Contact()
 		{
-			ViewBag.Message = "Your contact page with text.";
+			ViewBag.Message = "Kontakta oss.";
 
 			return View();
 		}
