@@ -20,7 +20,7 @@ namespace PandaWeb.Controllers
         //och du måste trycka på endast!! en av länkarna i HomeControllern för utbildnignarna, 
         //därefter stänga och köra om, men
         //med nedan rad bortkommenterad!!
-        //PopulateDBWithEducationPlan fillDB = new PopulateDBWithEducationPlan();
+       //PopulateDBWithEducationPlan fillDB = new PopulateDBWithEducationPlan();
         //I mappen Global.asax.cs kommentera bort Database.SetInitializer
 
         // GET: UP
