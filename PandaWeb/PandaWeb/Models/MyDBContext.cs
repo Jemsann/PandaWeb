@@ -16,10 +16,10 @@ namespace PandaWeb.Models
 
 		}
 
-		//static MyDBContext()
-		//{
-		//	DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());
-		//}
+		static MyDBContext()
+		{
+			DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());
+		}
 
 		public DbSet<EducationPlan> EducationPlans { get; set; }
 		public DbSet<Course> Course { get; set; }

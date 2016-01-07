@@ -34,5 +34,7 @@ namespace PandaWeb.Models
 
         //länktabell till Utbildningsplan
         public ULDocuments ULDocuments { get; set; }
+
+
     }
 }

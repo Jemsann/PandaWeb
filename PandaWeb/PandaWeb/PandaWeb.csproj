@@ -213,7 +213,6 @@
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\MyDBContextRepository.cs" />
     <Compile Include="Models\MySqlHistoryContext.cs" />
-    <Compile Include="Models\MySqlInitializer.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PopulateDBWithEducationPlan.cs" />
     <Compile Include="Models\Protocol.cs" />
@@ -524,7 +523,7 @@
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Account\Lgusers.cshtml" />
-    <Content Include="Views\Account\MyCourses.cshtml" />
+    <Content Include="Views\Account\MyEducations.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
