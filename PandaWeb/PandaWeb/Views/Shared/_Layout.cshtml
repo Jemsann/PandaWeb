@@ -31,7 +31,14 @@
                         if (User.IsInRole("S") || User.IsInRole("A") || User.IsInRole("L"))
                         {
                             <li><a href="#">Välkommen @User.Identity.Name</a></li>
+
+                            if (User.IsInRole("S")|| User.IsInRole("A"))
+                            {
+                                <li>@Html.ActionLink("Mina utbildningar", "MyCourses", "Account")</li>
+                            }
+
                             @*<li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>*@
+
                     if (User.IsInRole("L") || User.IsInRole("A"))
                     {
                         <li>
@@ -43,10 +50,7 @@
                                 <li>@Html.ActionLink("Medlemmar", "Lgusers", "Account")</li>
                                 <li>@Html.ActionLink("Protokoll", "LG", "Education")</li>                               
                             </ul>
-                        </li>
-
-
-                        
+                        </li>                        
                     }
 
                     if (User.IsInRole("A"))

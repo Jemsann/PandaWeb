@@ -72,5 +72,11 @@ namespace PandaWeb.Controllers
             return View(role);
 
         }
+
+        public ActionResult MyCourses()
+        {
+
+            return View();
+        }
     } 
 }
