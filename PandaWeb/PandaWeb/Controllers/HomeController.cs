@@ -18,6 +18,7 @@ namespace PandaWeb.Controllers
 			return View();
 		}
 
+		[Authorize(Roles = "S"), Authorize(Roles = "A")]
 		public ActionResult Edu()
 		{
 			MyDBContext context = new MyDBContext();

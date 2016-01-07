@@ -18,6 +18,7 @@ namespace PandaWeb.Models
 
 		static MyDBContext()
 		{
+
 			DbConfiguration.SetConfiguration(new MySql.Data.Entity.MySqlEFConfiguration());
 		}
 
