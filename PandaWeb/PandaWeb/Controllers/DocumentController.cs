@@ -52,7 +52,7 @@ namespace PandaWeb.Controllers
 
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LG", "Education");
         }
 
         public ActionResult SaveProtocol(FormCollection formCollection)
@@ -79,7 +79,7 @@ namespace PandaWeb.Controllers
 
                 }
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("LG", "Education");
         }
 		public ActionResult DownloadProtocol(int id)
 		{

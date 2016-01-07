@@ -25,17 +25,13 @@
             </div>
 
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    
-                   
-                    
+                <ul class="nav navbar-nav">                            
                     @if (User.Identity.IsAuthenticated)
 					{
 						if (User.IsInRole("S")|| User.IsInRole("A"))
 						{
-							<li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>
+							@*<li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>*@
                             <li>@Html.ActionLink("LG-information", "LG", "Education")</li>
-
                             if (User.IsInRole("A"))
                             {
                                 <li>
@@ -43,7 +39,6 @@
                                         Management
                                         <span class="caret"></span>
                                     </a>
-
                                     <ul class="dropdown-menu" role="menu">
                                         <li>@Html.ActionLink("Utbildningar", "Index", "ManageEducation")</li>
                                         <li>@Html.ActionLink("Kurser", "Index", "Courses")</li>
@@ -54,9 +49,7 @@
                             }
 
                         }
-
-
-
+						
                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
                     <li><a href="#">Welcome @User.Identity.Name</a></li>
 
@@ -64,13 +57,13 @@
 
                     else
                     {                                         
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Om Oss", "About", "Home")</li>
+                   
                     <li>@Html.ActionLink("Registrera", "Register", "Account")</li>
                     <li>@Html.ActionLink("Logga in", "Login", "Account")</li>
                     
                     }
-                   
+					<li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+					<li>@Html.ActionLink("Om Oss", "About", "Home")</li>
                     
             </div>
         </div>
