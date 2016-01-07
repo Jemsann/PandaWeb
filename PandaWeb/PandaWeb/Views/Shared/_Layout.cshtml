@@ -30,6 +30,7 @@
                     <li>@Html.ActionLink("Kalender", "Index", "Calendar")</li>
                     <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Om Oss", "About", "Home")</li>
+                    
                     @if (User.Identity.IsAuthenticated)
                     {
                         if (User.IsInRole("A"))
@@ -58,7 +59,7 @@
 
                     <li>@Html.ActionLink("Login", "Login", "Account")</li>
                     }
-                    
+                    </ul>
             </div>
         </div>
     </div>
