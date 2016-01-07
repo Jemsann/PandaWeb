@@ -44,11 +44,11 @@ Here is a class diagram over our project.
 
 #The team
 We have during this project switched rolls with each other so everyone has been a product owner, developer and scrum master along the project.
-Jemma Touma
-Peter Söderberg
-Linus Nilsson
-Sebastian Wellmar
-Joel Chowdhury
-Erik Rantala
-License
+Jemma Touma,
+Peter Söderberg,
+Linus Nilsson,
+Sebastian Wellmar,
+Joel Chowdhury,
+Erik Rantala.
+#License
 No license required everything is open sourced you can find it at nugget and Visual Studio is free to download on www.visualstudio.com. Be sure to download Visual Studio Community 2015 so you dont use an older version.
