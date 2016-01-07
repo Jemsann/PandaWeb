@@ -41,6 +41,6 @@ namespace PandaWeb.Models
 
 		public string Role { get; set; }
 
-		public ICollection<EducationPlan> EducationId { get; set; }
+		//public ICollection<EducationPlan> EducationId { get; set; }
 	}
 }
