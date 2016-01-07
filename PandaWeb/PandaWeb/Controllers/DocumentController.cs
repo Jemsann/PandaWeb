@@ -81,26 +81,26 @@ namespace PandaWeb.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
-
-        public PartialViewResult ShowDocuments(int id)
+		public ActionResult DownloadProtocol(int id)
+		{
+			byte[] docu = context.Protocols.Where(d => d.Id == id).Select(d => d.File).First();
+			string content = context.Protocols.Where(d => d.Id == id).Select(d => d.Type).First();
+			string title = context.Protocols.Where(d => d.Id == id).Select(d => d.Name).First();
+			return File(docu, content, title);
+		}
+		public PartialViewResult ShowDocuments(int id)
         {
             return PartialView(repository.GetSpecificDocuments(id));
         }
 
         public ActionResult DownloadFile(int id)
         {
-            string docu = context.Documents.Where(d => d.Id == id).Select(d =>d.FileName).First();         
+            byte[] docu = context.Documents.Where(d => d.Id == id).Select(d =>d.Document).First();         
             string content = context.Documents.Where(d => d.Id == id).Select(d => d.DocType).First();
             string title = context.Documents.Where(d => d.Id == id).Select(d => d.Title).First();           
             return File(docu, content, title);
         }
 
-        public ActionResult DownloadProtocol(int id)
-        {
-            string docu = context.Protocols.Where(d => d.Id == id).Select(d => d.FileName).First();
-            string content = context.Protocols.Where(d => d.Id == id).Select(d => d.Type).First();
-            string title = context.Protocols.Where(d => d.Id == id).Select(d => d.Name).First();
-            return File(docu, content, title);
-        }
+      
     }
 }

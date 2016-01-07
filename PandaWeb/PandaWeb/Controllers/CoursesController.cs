@@ -10,6 +10,7 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+	[Authorize(Roles ="A")]
     public class CoursesController : Controller
     {
         private MyDBContext db = new MyDBContext();
@@ -58,19 +59,13 @@ namespace PandaWeb.Controllers
             return View(course);
         }
 
-		//Skapar dropdown för koppling av kurser till utbildningar
+		//skapar dropdown för utbildningar i menyn
 		public static List<SelectListItem> GetDropDown()
 		{
-			var listItems = new List<SelectListItem>();
-			MyDBContext context = new MyDBContext();
-			var all = from e in context.EducationPlans select e;
-
-			foreach (var item in all)
-			{
-				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
-			}
-			return listItems;
+			IRepository repo = new MyDBContextRepository();
+			return repo.GetDropDown();
 		}
+
 
 		// GET: Courses/Edit/5
 		public ActionResult Edit(int? id)

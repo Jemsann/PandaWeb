@@ -12,13 +12,15 @@ namespace PandaWeb.Models
         [Key]
         public int EducationId { get; set; }
         [Required(ErrorMessage = "Ett namn för Utbildningen krävs")]
-        [StringLength(50, ErrorMessage = "{0} måste innehålla minst {2} tecken.", MinimumLength = 4)]
+       // [StringLength(50, ErrorMessage = "{0} måste innehålla minst {2} tecken.", MinimumLength = 4)]
         public string Name { get; set; }
-        [Required(ErrorMessage = "Ett Start Datum krävs.")]
-        [DisplayFormat(DataFormatString="{0:yyyy/MM/dd}")]
+
+
+		//[Required(ErrorMessage = "Ett Start Datum krävs.")]
+  //      [DisplayFormat(DataFormatString="{0:yyyy/MM/dd}")]
         public DateTime StartDate { get; set; }
-        [Required(ErrorMessage = "Ett Slut Datum krävs.")]
-        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
+        //[Required(ErrorMessage = "Ett Slut Datum krävs.")]
+        //[DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}")]
         public DateTime EndDate { get; set; }
         public string PaceOfStudy { get; set; }
         public string FormOfStudy { get; set; }

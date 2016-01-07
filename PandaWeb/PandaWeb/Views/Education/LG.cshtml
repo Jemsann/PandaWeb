@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<PandaWeb.Models.Protocol>
 @{
     ViewBag.Title = "LG";
-    Layout = "~/Views/Shared/_LayoutEducation.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <h2>LG-Information</h2>
@@ -10,8 +11,8 @@
 </p>
 <br />
 <div>
-	Rätta till nedan actionlink!!!
-	@Html.ActionLink("UploadProtocols", "UploadDocuments", "Document", new { id=1}, null)
+	
+	@Html.ActionLink("UploadProtocols", "UploadProtocols", "Document", new { id=1}, null)
 </div>
 <div name="uppladdning">
 	<table>

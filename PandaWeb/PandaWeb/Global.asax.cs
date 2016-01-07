@@ -17,12 +17,13 @@ namespace PandaWeb
     {
         protected void Application_Start()
         {
+            GlobalFilters.Filters.Add(new AuthorizeAttribute());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-           // Database.SetInitializer(new DropCreateDatabaseAlways<MyDBContext>());
-            //Database.SetInitializer(new DropCreateDatabaseAlways<CalendarContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<MyDBContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<CalendarContext>());
             //Database.SetInitializer(new MySqlInitializer());
 
             Mapper.CreateMap<EducationPlan, IndexVM>();
