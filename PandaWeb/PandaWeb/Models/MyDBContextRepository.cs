@@ -92,16 +92,14 @@ namespace PandaWeb.Models
 		{
 			var listItems = new List<SelectListItem>();
 			MyDBContext context = new MyDBContext();
-			var all = from e in context.EducationPlans select e;
-			//var all = context.EducationPlans.ToArray();
+			//var all = from e in context.EducationPlans select e;
+			EducationPlan[] all = context.EducationPlans.ToArray();
 			foreach (var item in all)
 			{
 				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
 			}
 			return listItems;
 		}
-
-
 
 		//    using (var db = new MyDBContext())
 		//        {

@@ -9,70 +9,70 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
-    
-    public class CalendarController : Controller
-    {
-        private CalendarContext db = new CalendarContext();
-        
-        public ActionResult Index()
-        {
-            var scheduler = new DHXScheduler(this);
-            scheduler.Skin = DHXScheduler.Skins.Flat;
 
-            scheduler.Config.first_hour = 6;
-            scheduler.Config.last_hour = 20;
+	public class CalendarController : Controller
+	{
+		private CalendarContext db = new CalendarContext();
 
-            scheduler.EnableDynamicLoading(SchedulerDataLoader.DynamicalLoadingMode.Month);
+		public ActionResult Index()
+		{
+			var scheduler = new DHXScheduler(this);
+			scheduler.Skin = DHXScheduler.Skins.Flat;
 
-            scheduler.LoadData = true;
-            scheduler.EnableDataprocessor = true;
+			scheduler.Config.first_hour = 6;
+			scheduler.Config.last_hour = 20;
 
-            return View(scheduler);
-        }
+			scheduler.EnableDynamicLoading(SchedulerDataLoader.DynamicalLoadingMode.Month);
 
-        public ContentResult Data(DateTime from, DateTime to)
-        {
-            var apps = db.Appointments.Where(e => e.StartDate < to && e.EndDate >= from).ToList();
-            return new SchedulerAjaxData(apps);
-        }
+			scheduler.LoadData = true;
+			scheduler.EnableDataprocessor = true;
 
-        public ActionResult Save(int? id, FormCollection actionValues)
-        {
-            var action = new DataAction(actionValues);
+			return View(scheduler);
+		}
 
-            try
-            {
-                var changedEvent = DHXEventsHelper.Bind<Appointment>(actionValues);
-                switch (action.Type)
-                {
-                    case DataActionTypes.Insert:
-                        db.Appointments.Add(changedEvent);
-                        break;
-                    case DataActionTypes.Delete:
-                        db.Entry(changedEvent).State = EntityState.Deleted;
-                        break;
-                    default:// "update"  
-                        db.Entry(changedEvent).State = EntityState.Modified;
-                        break;
-                }
-                db.SaveChanges();
-                action.TargetId = changedEvent.Id;
-            }
-            catch (Exception a)
-            {
-                action.Type = DataActionTypes.Error;
-            }
+		public ContentResult Data(DateTime from, DateTime to)
+		{
+			var apps = db.Appointments.Where(e => e.StartDate < to && e.EndDate >= from).ToList();
+			return new SchedulerAjaxData(apps);
+		}
 
-            return (new AjaxSaveResponse(action));
-        }
+		public ActionResult Save(int? id, FormCollection actionValues)
+		{
+			var action = new DataAction(actionValues);
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-    }
+			try
+			{
+				var changedEvent = DHXEventsHelper.Bind<Appointment>(actionValues);
+				switch (action.Type)
+				{
+					case DataActionTypes.Insert:
+						db.Appointments.Add(changedEvent);
+						break;
+					case DataActionTypes.Delete:
+						db.Entry(changedEvent).State = EntityState.Deleted;
+						break;
+					default:// "update"  
+						db.Entry(changedEvent).State = EntityState.Modified;
+						break;
+				}
+				db.SaveChanges();
+				action.TargetId = changedEvent.Id;
+			}
+			catch (Exception a)
+			{
+				action.Type = DataActionTypes.Error;
+			}
+
+			return (new AjaxSaveResponse(action));
+		}
+
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				db.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+	}
 }

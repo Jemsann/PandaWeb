@@ -194,7 +194,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EducationController.cs" />
@@ -209,9 +208,12 @@
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Documents.cs" />
     <Compile Include="Models\EducationPlan.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IRepository.cs" />
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\MyDBContextRepository.cs" />
+    <Compile Include="Models\MySqlHistoryContext.cs" />
+    <Compile Include="Models\MySqlInitializer.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\PopulateDBWithEducationPlan.cs" />
     <Compile Include="Models\Protocol.cs" />

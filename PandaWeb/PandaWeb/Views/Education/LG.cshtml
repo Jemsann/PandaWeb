@@ -12,13 +12,15 @@
 <br />
 <div>
 	
-	@Html.ActionLink("UploadProtocols", "UploadProtocols", "Document", new { id=1}, null)
+	@Html.ActionLink("Ladda upp protokoll", "UploadProtocols", "Document", new { id=1}, null)
 </div>
 <div name="uppladdning">
-	<table>
+	<table class="table">
 		<tr>
 			<th>Protokoll</th>
+			
 			<th>Datum</th>
+			
 		</tr>
 
 
@@ -28,11 +30,13 @@
 				<td>
 					@Html.DisplayFor(modelItem => item.Name)
 				</td>
+				
 				<td>
 					@Html.DisplayFor(modelItem => item.Added)
 				</td>
+
 				<td>
-					@Html.ActionLink("Download", "DownloadProtocol", "Document", new { id = item.Id }, null)
+					@Html.ActionLink(" Hämta", "DownloadProtocol", "Document", new { id = item.Id }, null)
 				</td>
 			</tr>
 		}
