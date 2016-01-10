@@ -9,15 +9,17 @@ using System.Web.Mvc;
 
 namespace PandaWeb.Controllers
 {
+	// Allows anonymous users to use this class.
 	[AllowAnonymous]
 	public class HomeController : Controller
 	{
-
+		// The default start page
 		public ActionResult Index()
 		{
 			return View();
 		}
 
+		// If loged in shows a list of all educations
 		[Authorize(Roles = "S"), Authorize(Roles = "A")]
 		public ActionResult Edu()
 		{
@@ -26,6 +28,7 @@ namespace PandaWeb.Controllers
 			return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
 		}
 
+		// About
 		public ActionResult About()
 		{
 			ViewBag.Message = "Om PandaWebb.";
@@ -33,6 +36,7 @@ namespace PandaWeb.Controllers
 			return View();
 		}
 
+		// Contact
 		public ActionResult Contact()
 		{
 			ViewBag.Message = "Kontakta oss.";

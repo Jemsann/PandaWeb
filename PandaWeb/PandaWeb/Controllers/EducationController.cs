@@ -16,28 +16,21 @@ namespace PandaWeb.Controllers
     public class EducationController : Controller
     {
         MyDBContext context = new MyDBContext();
-
-        //Första gången du kör koden, så måste du instansiera upp PopulateDBWithEducationPlan
-        //och du måste trycka på endast!! en av länkarna i HomeControllern för utbildnignarna, 
-        //därefter stänga och köra om, men
-        //med nedan rad bortkommenterad!!
-       //PopulateDBWithEducationPlan fillDB = new PopulateDBWithEducationPlan();
-        //I mappen Global.asax.cs kommentera bort Database.SetInitializer
-
-        // GET: UP
+        
+        // shows details about educationplan
         public ActionResult UPSystemutveckling(int id)
         {
             return View(repository.GetEducationPlan(id));
         }
 
+        // MAnagement team view.
         public ActionResult LG()
-        {
-            //ActionResult för LG-Information
+        {            
             return View(repository.GetProtocols());
         }
         IRepository repository = new MyDBContextRepository();
 
-        //Vy för utbildningar
+        //View for educations
         public ActionResult Details(int id)
         {    
             return PartialView(repository.GetEducationPlan(id));
@@ -49,13 +42,13 @@ namespace PandaWeb.Controllers
         //}
 
 
-        //Vy för alla kurser för specifik utbildning
+        //view for all courses within an education program
         public ActionResult CourseDetails(int id)
         {
             return PartialView(repository.GetCoursesDetailsViewModel(id));
         }
 
-        //Vy för specifik kurs
+        //View for showing selected course.
         public ActionResult OneCourseDetails(int id)
         {
             return PartialView(repository.GetCourse(id));

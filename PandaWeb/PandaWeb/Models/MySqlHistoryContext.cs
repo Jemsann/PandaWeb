@@ -4,6 +4,8 @@ using System.Data.Entity.Migrations.History;
 
 namespace PandaWeb
 {
+	// MYSQL context class for entity framework.
+
 	public class MySqlHistoryContext : HistoryContext
 	{
 		public MySqlHistoryContext(

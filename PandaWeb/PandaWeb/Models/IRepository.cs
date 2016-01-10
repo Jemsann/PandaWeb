@@ -8,6 +8,8 @@ using System.Web.Mvc;
 
 namespace PandaWeb.Models
 {
+    // Interface implemented in entity framework context classes
+
     interface IRepository
     {
         ICollection<IndexVM> GetIndexViewModel();

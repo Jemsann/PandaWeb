@@ -10,18 +10,19 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+    // This class is only avaiable to users in role "A"
     [Authorize(Roles ="A")]
     public class UsersController : Controller
     {
         private MyDBContext db = new MyDBContext();
 
-        // GET: Users
+        // List all users
         public ActionResult Index()
         {
             return View(db.Users.ToList());
         }
 
-        // GET: Users/Details/5
+        // User details
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,13 +37,13 @@ namespace PandaWeb.Controllers
             return View(users);
         }
 
-        // GET: Users/Create
+        // Initiate Create user
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Users/Create
+        // Create user in database.
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -59,7 +60,7 @@ namespace PandaWeb.Controllers
             return View(users);
         }
 
-        // GET: Users/Edit/5
+        // Initiate edit user.
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,7 +75,7 @@ namespace PandaWeb.Controllers
             return View(users);
         }
 
-        // POST: Users/Edit/5
+        // Edit user.
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,7 +91,7 @@ namespace PandaWeb.Controllers
             return View(users);
         }
 
-        // GET: Users/Delete/5
+        // Initiate user deletion
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +106,7 @@ namespace PandaWeb.Controllers
             return View(users);
         }
 
-        // POST: Users/Delete/5
+        // Delete the user
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -116,6 +117,7 @@ namespace PandaWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        // Free assets no longer in use
         protected override void Dispose(bool disposing)
         {
             if (disposing)

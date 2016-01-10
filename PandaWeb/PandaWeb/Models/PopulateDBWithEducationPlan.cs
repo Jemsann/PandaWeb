@@ -6,6 +6,7 @@ using System.Web;
 
 namespace PandaWeb.Models
 {
+    // This class can be used to autogenerate some database items for testing purposes.
     public class PopulateDBWithEducationPlan
     {
         MyDBContext context = new MyDBContext();

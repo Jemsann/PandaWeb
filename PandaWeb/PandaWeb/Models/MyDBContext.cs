@@ -8,6 +8,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PandaWeb.Models
 {
+	// C# entity framework context class.
+
 	[DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
 	public class MyDBContext : DbContext
 	{

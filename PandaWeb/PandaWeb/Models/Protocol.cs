@@ -5,6 +5,8 @@ using System.Web;
 
 namespace PandaWeb.Models
 {
+    // C# entity framework class model
+
     public class Protocol
     {
         public int Id { get; set; }

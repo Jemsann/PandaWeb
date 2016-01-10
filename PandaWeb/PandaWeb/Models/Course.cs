@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PandaWeb.Models
 {
+    // C# entity framework class model
 
     [Table("Course")]
     public class Course

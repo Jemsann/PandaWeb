@@ -14,6 +14,7 @@ namespace PandaWeb.Controllers
         IRepository repository = new MyDBContextRepository();
         MyDBContext context = new MyDBContext();
 
+        //upload documents. A course id must be provided.
         public ActionResult UploadDocuments(int id)
         {
 			if (id == 0)
@@ -23,12 +24,14 @@ namespace PandaWeb.Controllers
 			return PartialView(repository.GetDocuments(id));
         }
 
+        //upload management team protocols.
         public ActionResult UploadProtocols()
         {
 
             return PartialView();
         }
 
+        // convert upload to byte array and save it in the database. The returns to the standard view.
         public ActionResult Save(FormCollection formCollection, int id = 0)
         {
             if (Request != null)
@@ -55,6 +58,7 @@ namespace PandaWeb.Controllers
             return RedirectToAction("LG", "Education");
         }
 
+        // convert upload to byte array and save it in the database. The returns to the standard view.
         public ActionResult SaveProtocol(FormCollection formCollection)
         {
             if (Request != null)
@@ -81,6 +85,8 @@ namespace PandaWeb.Controllers
             }
             return RedirectToAction("LG", "Education");
         }
+
+        //Download management team protocol.
 		public ActionResult DownloadProtocol(int id)
 		{
 			byte[] docu = context.Protocols.Where(d => d.Id == id).Select(d => d.File).First();
@@ -88,11 +94,14 @@ namespace PandaWeb.Controllers
 			string title = context.Protocols.Where(d => d.Id == id).Select(d => d.Name).First();
 			return File(docu, content, title);
 		}
+
+        // Shows documents with the option to dowload the from the database
 		public PartialViewResult ShowDocuments(int id)
         {
             return PartialView(repository.GetSpecificDocuments(id));
         }
 
+        //converts byte array back to the original file.
         public ActionResult DownloadFile(int id)
         {
             byte[] docu = context.Documents.Where(d => d.Id == id).Select(d =>d.Document).First();         

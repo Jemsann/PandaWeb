@@ -7,6 +7,8 @@ using System.Web;
 
 namespace PandaWeb.Models
 {
+    // C# entity framework class model
+
     public class EducationPlan
     {
         [Key]

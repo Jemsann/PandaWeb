@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace PandaWeb.Models
 {
+    // C# entity framework context class
     public class MyDBContextRepository : IRepository
     {
 

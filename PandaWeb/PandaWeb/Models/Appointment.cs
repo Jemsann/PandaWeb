@@ -5,6 +5,7 @@ using DHTMLX.Scheduler;
 
 namespace PandaWeb.Models
 {
+    // C# entity framework class model
     public class Appointment
     {
         [Key]

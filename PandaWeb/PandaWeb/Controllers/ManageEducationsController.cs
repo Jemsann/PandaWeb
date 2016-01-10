@@ -10,20 +10,20 @@ using PandaWeb.Models;
 
 namespace PandaWeb.Controllers
 {
+    // This class is only available to users in role "A"
     [Authorize(Roles = "A")]
     public class ManageEducationController : Controller
     {
 
         private MyDBContext db = new MyDBContext();
 
-        // GET: ManageEducation
-
+        // view for admin to list, create, delete and edit educationplans.
         public ActionResult Index()
         {
             return View(db.EducationPlans.ToList());
         }
 
-        // GET: ManageEducation/Details/5
+        // Returns the selected educationplan
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -38,13 +38,13 @@ namespace PandaWeb.Controllers
             return View(educationPlan);
         }
 
-        // GET: ManageEducation/Create
+        // Create new educationplan
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ManageEducation/Create
+        // Creating the new educationplan.
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +61,7 @@ namespace PandaWeb.Controllers
             return View(educationPlan);
         }
 
-        // GET: ManageEducation/Edit/5
+        // Retrives educationplan for edit.
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,7 +76,7 @@ namespace PandaWeb.Controllers
             return View(educationPlan);
         }
 
-        // POST: ManageEducation/Edit/5
+        // Saves the edited educationplan.
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -92,7 +92,7 @@ namespace PandaWeb.Controllers
             return View(educationPlan);
         }
 
-        // GET: ManageEducation/Delete/5
+        // initiate deletetion of educationplan.
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,7 +107,7 @@ namespace PandaWeb.Controllers
             return View(educationPlan);
         }
 
-        // POST: ManageEducation/Delete/5
+        // deletes educationplan and saves changes to database
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -118,6 +118,7 @@ namespace PandaWeb.Controllers
             return RedirectToAction("Index");
         }
 
+        // this will free up assets which are no longer in use.
         protected override void Dispose(bool disposing)
         {
             if (disposing)
