@@ -1,15 +1,14 @@
 ﻿@model PandaWeb.Models.EducationPlan
 
 @{
-	ViewBag.Title = "Delete";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Radera Utbildning";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Radera Utbildning</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Är du säker på att du vill radera den här Utbildningen?</h3>
 <div>
-    <h4>EducationPlan</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -54,12 +53,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Radera" class="btn btn-default" /> |
+            @Html.ActionLink("Tillbaka till listan", "Index")
         </div>
     }
 </div>

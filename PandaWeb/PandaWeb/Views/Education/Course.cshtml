@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<PandaWeb.Models.Course>
 
 @{
-	ViewBag.Title = "Course";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Course";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Kurser</h2>
@@ -29,27 +29,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EducationPlanId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CoursePlan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EarlierMaterial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OtherMaterial)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TeacherId)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationPlanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoursePlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EarlierMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherMaterial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherId)
+            </td>
+        </tr>
+    }
 
 </table>

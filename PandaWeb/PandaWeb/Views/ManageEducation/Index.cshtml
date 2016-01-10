@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<PandaWeb.Models.EducationPlan>
 
 @{
-	ViewBag.Title = "Index";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Utbildningar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Utbildningar</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa Utbildning", "Create")
 </p>
 <table class="table">
     <tr>
@@ -30,29 +30,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PaceOfStudy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FormOfStudy)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EducationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EducationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EducationId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaceOfStudy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormOfStudy)
+            </td>
+            <td>
+                @Html.ActionLink("Redigera", "Edit", new { id = item.EducationId }) |
+                @Html.ActionLink("Detaljer", "Details", new { id = item.EducationId }) |
+                @Html.ActionLink("Radera", "Delete", new { id = item.EducationId })
+            </td>
+        </tr>
+    }
 
 </table>

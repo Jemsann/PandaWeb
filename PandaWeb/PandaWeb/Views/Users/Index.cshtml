@@ -1,13 +1,10 @@
 ﻿@model IEnumerable<PandaWeb.Models.Users>
-
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Användare";
 }
-
-<h2>Index</h2>
-
+<h2>Användare</h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Skapa Användare", "Create")
 </p>
 <table class="table">
     <tr>
@@ -25,27 +22,26 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fullname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Role)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.ActionLink("Redigera", "Edit", new { id = item.UserID }) |
+                @Html.ActionLink("Detaljer", "Details", new { id = item.UserID }) |
+                @Html.ActionLink("Radera", "Delete", new { id = item.UserID })
+            </td>
+        </tr>
+    }
 </table>
