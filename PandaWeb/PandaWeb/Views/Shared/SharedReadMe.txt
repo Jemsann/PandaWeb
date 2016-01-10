@@ -1,0 +1,1 @@
+﻿// This folder contains the layout pages called from the views. 

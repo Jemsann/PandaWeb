@@ -1,0 +1,1 @@
+﻿// This folder contains all the views called from the user controller

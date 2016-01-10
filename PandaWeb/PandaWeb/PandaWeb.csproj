@@ -474,6 +474,15 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\ScriptsReadMe.txt" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Account\AccountReadMe.txt" />
+    <Content Include="Views\Calendar\CalendarReadMe.txt" />
+    <Content Include="Views\Courses\CoursesReadMe.txt" />
+    <Content Include="Views\Document\DocumentReadMe.txt" />
+    <Content Include="Views\Education\EducationReadMe.txt" />
+    <Content Include="Views\Home\HomeReadMe.txt" />
+    <Content Include="Views\ManageEducation\ManageEducationReadMe.txt" />
+    <Content Include="Views\Shared\SharedReadMe.txt" />
+    <Content Include="Views\Users\UsersReadMe.txt" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
