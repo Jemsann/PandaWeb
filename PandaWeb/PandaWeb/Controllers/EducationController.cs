@@ -9,6 +9,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
 using PandaWeb.ViewModels;
 using AutoMapper;
+using Microsoft.AspNet.Identity;
 
 namespace PandaWeb.Controllers
 {
@@ -23,15 +24,27 @@ namespace PandaWeb.Controllers
             return View(repository.GetEducationPlan(id));
         }
 
-        // MAnagement team view.
+		
+
+        // Management team view.
         public ActionResult LG()
         {            
             return View(repository.GetProtocols());
         }
         IRepository repository = new MyDBContextRepository();
 
-        //View for educations
-        public ActionResult Details(int id)
+		//View for students all educations
+		public ActionResult EducationsDetails()
+		{
+
+			int userID = int.Parse(User.Identity.GetUserId());
+
+			return PartialView(repository.GetAllEduPlansViewModel(user));
+		}
+		
+
+		//View for specific education
+		public ActionResult Details(int id)
         {    
             return PartialView(repository.GetEducationPlan(id));
         }

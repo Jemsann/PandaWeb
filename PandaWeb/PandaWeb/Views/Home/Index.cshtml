@@ -8,6 +8,14 @@
     <p class="lead"></p>
     <p></p>
 </div>
-
-@Html.Action("Edu")
-
+<div>
+	<p>
+		Välkommen till Pandas Skolportal!
+		<br />
+		<br />
+		Logga in @Html.ActionLink("här", "Login", "Account")
+		<br />
+		Saknar du ett konto?
+		Ta kontakt med @Html.ActionLink("oss", "About")
+	</p>
+</div>

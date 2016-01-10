@@ -19,14 +19,23 @@ namespace PandaWeb.Controllers
 			return View();
 		}
 
-		// If loged in shows a list of all educations
-		[Authorize(Roles = "S"), Authorize(Roles = "A")]
-		public ActionResult Edu()
-		{
-			MyDBContext context = new MyDBContext();
-			var all = (from e in context.EducationPlans select e);
-			return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
-		}
+		//// If loged in shows a list of all educations
+		//[Authorize(Roles = "S"), Authorize(Roles = "A")]
+		//public ActionResult Edu(int id)
+		//{
+		//	MyDBContext context = new MyDBContext();
+		//	var allEdu; 
+		//	return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
+		//}
+
+		//// If loged in shows a list of all educations
+		//[Authorize(Roles = "S"), Authorize(Roles = "A")]
+		//public ActionResult Edu()
+		//{
+		//	MyDBContext context = new MyDBContext();
+		//	var all = (from e in context.EducationPlans select e);
+		//	return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
+		//}
 
 		// About
 		public ActionResult About()
