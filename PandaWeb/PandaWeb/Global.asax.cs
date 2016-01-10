@@ -15,6 +15,10 @@ namespace PandaWeb
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        // This runs on app startup. 
+        // If you have made changes to the entity framework models you need to initialise a new database.
+        // Do this by running the program once with the Database.SetInitializer lines active.
+        // Then close the program and comment the lines again to prevent accidental database wipes
         protected void Application_Start()
         {
             GlobalFilters.Filters.Add(new AuthorizeAttribute());

@@ -7,6 +7,7 @@ using Owin;
 
 namespace PandaWeb
 {
+	// Places a cookie in the users browser to keep track of login sessions.
 	public class Startup
 	{
 		public void Configuration(IAppBuilder app)

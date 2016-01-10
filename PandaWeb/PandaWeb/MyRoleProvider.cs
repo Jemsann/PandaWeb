@@ -7,6 +7,7 @@ using System.Web.Security;
 
 namespace PandaWeb
 {
+    // Part of the built-in-user-system. Provided by Microsoft.
     public class MyRoleProvider : RoleProvider
     {
         public override string ApplicationName
