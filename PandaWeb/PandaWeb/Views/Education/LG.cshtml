@@ -1,36 +1,38 @@
 ﻿@model IEnumerable<PandaWeb.Models.Protocol>
 @{
-    ViewBag.Title = "LG";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "LG";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	string meeting = PandaWeb.Controllers.EducationController.GetMeetingDate();
 
 }
 
 <h2>LG-Information</h2>
 <p>
-	För att se när nästa möte är, klicka @Html.ActionLink("här", "Index", "Calendar")
+	Nästa möte är @meeting.  
 </p>
 <br />
 <div>
-	
-	@Html.ActionLink("Ladda upp protokoll", "UploadProtocols", "Document", new { id=1}, null)
+
+	@Html.ActionLink("Ladda upp protokoll", "UploadProtocols", "Document", new { id = 1 }, null)
 </div>
 <div name="uppladdning">
 	<table class="table">
 		<tr>
 			<th>Protokoll</th>
-			
+
 			<th>Datum</th>
-			
+
 		</tr>
 
 
 		@foreach (var item in Model)
 		{
 			<tr>
+				<td> @Html.DisplayFor(modelItem => item.MeetingDate) </td>
 				<td>
 					@Html.DisplayFor(modelItem => item.Name)
 				</td>
-				
+
 				<td>
 					@Html.DisplayFor(modelItem => item.Added)
 				</td>
@@ -42,8 +44,3 @@
 		}
 	</table>
 </div>
-<br />
-    -Medlemmar
-<br />
-    -Val/[Val]
-

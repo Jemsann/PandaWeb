@@ -49,7 +49,7 @@ namespace PandaWeb.Models
 			using (var db = new MyDBContext())
 			{
 				int cm = db.Users.Where(user => user.UserID == userId).Select(user => user.EducationId).FirstOrDefault();
-				var em = db.EducationPlans.Where(ep=>ep.EducationId==cm).FirstOrDefault();
+				var em = db.EducationPlans.Where(ep => ep.EducationId == cm).FirstOrDefault();
 				return em;
 			}
 		}
@@ -124,13 +124,22 @@ namespace PandaWeb.Models
 		{
 			var listItems = new List<SelectListItem>();
 			MyDBContext context = new MyDBContext();
-			//var all = from e in context.EducationPlans select e;
-			EducationPlan[] all = context.EducationPlans.ToArray();
-			foreach (var item in all)
+			var all = from e in context.EducationPlans select e;
+			//EducationPlan[] all = context.EducationPlans.ToArray();
+			if (all != null)
 			{
-				listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+				foreach (var item in all)
+				{
+					listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+				}
+			}
+			else
+			{
+				listItems.Add(new SelectListItem() { Text = "Systemutveckling", Value = 1.ToString() });
+				listItems.Add(new SelectListItem() { Text = "Backendutveckling", Value = 2.ToString() });
 			}
 			return listItems;
+
 		}
 
 
