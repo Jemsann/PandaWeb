@@ -55,7 +55,7 @@ namespace PandaWeb.Controllers
 			var count = db.Users.Where(x => x.Username == U.Username && x.Password == U.Password).Count();
 			if (count == 0)
 			{
-				ViewBag.Msg = "Invalid User";
+				ViewBag.Msg = "Felaktigt användarnamn eller lösenord, försök igen.";
 				return View();
 			}
 			else
@@ -78,9 +78,9 @@ namespace PandaWeb.Controllers
 		{
 			MyDBContext db = new MyDBContext();
 			var role = (from r in db.Users where r.Role.Contains("L") select r).ToList();
-            
+			
 			return View(role);
-            
+			
 		}
 
 		// This shows the courses and educationprograms the loged in student are attending.
