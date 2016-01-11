@@ -48,7 +48,7 @@ namespace PandaWeb.Models
 		{
 			using (var db = new MyDBContext())
 			{
-				int cm = db.Users.Where(user => user.UserID == userId).Select(user => user.EducationPlanId).FirstOrDefault();
+				int cm = db.Users.Where(user => user.UserID == userId).Select(user => user.EducationId).FirstOrDefault();
 				var em = db.EducationPlans.Where(ep=>ep.EducationId==cm).FirstOrDefault();
 				return em;
 			}

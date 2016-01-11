@@ -37,7 +37,7 @@ namespace PandaWeb.Controllers
 		public ActionResult EducationsDetails()
 		{
 
-			int userID = int.Parse(User.Identity.GetUserId());
+			int user = int.Parse(User.Identity.GetUserId());
 
 			return PartialView(repository.GetAllEduPlansViewModel(user));
 		}
