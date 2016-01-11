@@ -1,9 +1,10 @@
 ﻿@model PandaWeb.Models.EducationPlan
 
 @{
-    ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Details";
 }
+
+<h2>Details</h2>
 
 <h2>Välkommen till @Html.DisplayFor(model => model.Name)</h2>
 <h3>Meddelande om den här utbildningen</h3>
@@ -12,13 +13,11 @@
 <br />
 
 <div name="info">
-    <p>
-        Den här utbildningen startar @Html.DisplayFor(model => model.StartDate) och avslutas @Html.DisplayFor(model => model.EndDate)
-      <br />  Kurser i det här programmet:
-        @Html.Action("CourseDetails")  </p>
-</div>
-<div name="UP">
-    @Html.ActionLink("Utbildningsplan","UPSystemutveckling", "Education", new{ id=Model.EducationId }, null)
-</div>
+	<p>
+		Den här utbildningen startar @Html.DisplayFor(model => model.StartDate) och avslutas @Html.DisplayFor(model => model.EndDate)
+		<br />  Kurser i det här programmet:
+		<div>
+		@Html.Action("CourseDetails")
 
-
+		</div>
+</div>

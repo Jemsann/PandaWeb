@@ -34,6 +34,22 @@ namespace PandaWeb.Models
 			}
 		}
 
+		List<EducationPlan> IRepository.GetEduPlan(int id)
+		{
+			using (var db = new MyDBContext())
+			{
+				var em = db.EducationPlans.Where(ep => ep.EducationId == id).ToArray();
+				List<EducationPlan> alla = new List<EducationPlan>();
+				foreach (var item in em)
+				{
+					item.Courses = db.Course.Where(c => c.EducationPlanId == item.EducationId).ToArray();
+					alla.Add(item);
+				}
+				//var vm = Mapper.Map<EduPlanDetailsVM>(em);
+				return alla;
+			}
+		}
+
 		ICollection<IndexVM> IRepository.GetCoursesDetailsViewModel(int id)
 		{
 			using (var db = new MyDBContext())
@@ -120,27 +136,27 @@ namespace PandaWeb.Models
 			}
 		}
 
-		List<SelectListItem> IRepository.GetDropDown()
-		{
-			var listItems = new List<SelectListItem>();
-			MyDBContext context = new MyDBContext();
-			var all = from e in context.EducationPlans select e;
-			//EducationPlan[] all = context.EducationPlans.ToArray();
-			if (all != null)
-			{
-				foreach (var item in all)
-				{
-					listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
-				}
-			}
-			else
-			{
-				listItems.Add(new SelectListItem() { Text = "Systemutveckling", Value = 1.ToString() });
-				listItems.Add(new SelectListItem() { Text = "Backendutveckling", Value = 2.ToString() });
-			}
-			return listItems;
+		//List<SelectListItem> IRepository.GetDropDown()
+		//{
+		//	var listItems = new List<SelectListItem>();
+		//	MyDBContext context = new MyDBContext();
+		//	var all = from e in context.EducationPlans select e;
+		//	//EducationPlan[] all = context.EducationPlans.ToArray();
+		//	if (all != null)
+		//	{
+		//		foreach (var item in all)
+		//		{
+		//			listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+		//		}
+		//	}
+		//	else
+		//	{
+		//		listItems.Add(new SelectListItem() { Text = "Systemutveckling", Value = 1.ToString() });
+		//		listItems.Add(new SelectListItem() { Text = "Backendutveckling", Value = 2.ToString() });
+		//	}
+		//	return listItems;
 
-		}
+		//}
 
 
 		//    using (var db = new MyDBContext())

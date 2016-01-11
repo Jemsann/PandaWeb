@@ -28,7 +28,7 @@ namespace PandaWeb.Models
         public string ConfirmPassword { get; set; }
 
         [Required(ErrorMessage = "Please provide full name", AllowEmptyStrings = false)]
-        [Display(Name = "Fullständiga namn")]
+        [Display(Name = "Fullständigt namn")]
         public string Fullname { get; set; }
 
         [RegularExpression(@"^([0-9a-zA-Z]([\+\-_\.][0-9a-zA-Z]+)*)+@(([0-9a-zA-Z]*\.)+[a-zA-Z0-9]{2,3})$",

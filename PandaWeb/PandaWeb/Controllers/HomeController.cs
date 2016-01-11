@@ -24,7 +24,7 @@ namespace PandaWeb.Controllers
 		//public ActionResult Edu(int id)
 		//{
 		//	MyDBContext context = new MyDBContext();
-		//	var allEdu; 
+		//	var allEdu;
 		//	return PartialView(Mapper.Map<ICollection<IndexVM>>(all));
 		//}
 

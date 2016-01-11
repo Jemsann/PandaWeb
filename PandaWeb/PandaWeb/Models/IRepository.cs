@@ -14,7 +14,8 @@ namespace PandaWeb.Models
     {
         ICollection<IndexVM> GetIndexViewModel();
         EduPlanDetailsVM GetEduPlansDetailsViewModel(int id);
-        ICollection<IndexVM> GetCoursesDetailsViewModel(int id);
+		List<EducationPlan> GetEduPlan(int id);
+		ICollection<IndexVM> GetCoursesDetailsViewModel(int id);
 		EducationPlan GetAllEduPlansViewModel(int userId);
 		List<SelectListItem> GetDropDownForEducations();
 		Course GetCourse(int id);
@@ -22,7 +23,7 @@ namespace PandaWeb.Models
         EducationPlan GetEducationPlan(int id);
         ICollection<Protocol> GetProtocols();
         ICollection<Documents> GetSpecificDocuments(int id);
-		List<SelectListItem> GetDropDown();
+		//List<SelectListItem> GetDropDown();
         //object GetEducationPlan(Guid userId);
     }
 }

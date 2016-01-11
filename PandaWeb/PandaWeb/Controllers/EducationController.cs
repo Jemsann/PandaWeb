@@ -41,17 +41,24 @@ namespace PandaWeb.Controllers
 		//View for students all educations
 		public ActionResult EducationsDetails()
 		{
-
-			int user = int.Parse(User.Identity.GetUserId());
-
-			return PartialView(repository.GetAllEduPlansViewModel(user));
+			int user;
+			int userEdu;
+			string name = User.Identity.Name;
+			
+			using (var db = new MyDBContext())
+			{
+				user = db.Users.Where(u => u.Username == name).Select(u => u.UserID).FirstOrDefault();
+				userEdu = db.Users.Where(u => u.UserID == user).Select(u => u.EducationId).FirstOrDefault();		
+			}
+			//return PartialView(repository.GetEduPlansDetailsViewModel(userEdu));
+			return PartialView(repository.GetEduPlan(user));
 		}
 
 
 		//View for specific education
 		public ActionResult Details(int id)
 		{
-			return PartialView(repository.GetEducationPlan(id));
+			return View(repository.GetEducationPlan(id));
 		}
 
 		//public ActionResult Details(int id)
@@ -63,6 +70,7 @@ namespace PandaWeb.Controllers
 		//view for all courses within an education program
 		public ActionResult CourseDetails(int id)
 		{
+			//return Content("<div>!</div>");
 			return PartialView(repository.GetCoursesDetailsViewModel(id));
 		}
 

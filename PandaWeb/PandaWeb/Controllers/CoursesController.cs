@@ -48,7 +48,7 @@ namespace PandaWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EducationPlanId,CoursePlan,EarlierMaterial,OtherMaterial,TeacherId")] Course course)
+        public ActionResult Create([Bind(Include = "Id,Name,EducationPlanId,StartDate,EndDate")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -60,13 +60,28 @@ namespace PandaWeb.Controllers
             return View(course);
         }
 
-		//Creates a dropdown-item for educations in the main top-menu.
-		public static List<SelectListItem> GetDropDown()
-		{
-			IRepository repo = new MyDBContextRepository();
-			return repo.GetDropDown();
-		}
 
+		public static List<SelectListItem> GetDropDownEdu()
+		{
+			var listItems = new List<SelectListItem>();
+			MyDBContext context = new MyDBContext();
+			//var all = from e in context.EducationPlans select e;
+			var all = context.EducationPlans.Select(e => e);
+			//EducationPlan[] all = context.EducationPlans.ToArray();
+			if (all != null)
+			{
+				foreach (var item in all)
+				{
+					listItems.Add(new SelectListItem() { Text = item.Name, Value = item.EducationId.ToString() });
+				}
+			}
+			else
+			{
+				listItems.Add(new SelectListItem() { Text = "Systemutveckling", Value = 1.ToString() });
+				listItems.Add(new SelectListItem() { Text = "Backendutveckling", Value = 2.ToString() });
+			}
+			return listItems;
+		}
 
 		// Lets a user edit a stored course.
 		public ActionResult Edit(int? id)

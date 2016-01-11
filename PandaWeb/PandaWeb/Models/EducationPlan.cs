@@ -20,15 +20,15 @@ namespace PandaWeb.Models
         public string Name { get; set; }
 
 
-        //[Required(ErrorMessage = "Ett Startdatum krävs.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Startdatum")]
         public DateTime StartDate { get; set; }
-        //[Required(ErrorMessage = "Ett Slutdatum krävs.")]
+       
         [Display(Name = "Slutdatum")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime EndDate { get; set; }
-        [Display(Name = "Studietakt")]
+
+		[Display(Name = "Studietakt")]
         public string PaceOfStudy { get; set; }
         [Display(Name = "Distans/På plats")]
         public string FormOfStudy { get; set; }

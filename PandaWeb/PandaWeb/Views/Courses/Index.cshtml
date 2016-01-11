@@ -19,16 +19,10 @@
             @Html.DisplayNameFor(model => model.EducationPlanId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CoursePlan)
+            @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EarlierMaterial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OtherMaterial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TeacherId)
+            @Html.DisplayNameFor(model => model.EndDate)
         </th>
         <th></th>
     </tr>
@@ -43,16 +37,10 @@
                 @Html.DisplayFor(modelItem => item.EducationPlanId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CoursePlan)
+                @Html.DisplayFor(modelItem => item.StartDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EarlierMaterial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OtherMaterial)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TeacherId)
+                @Html.DisplayFor(modelItem => item.EndDate)
             </td>
             <td>
                 @Html.ActionLink("Redigera", "Edit", new { id = item.Id }) |

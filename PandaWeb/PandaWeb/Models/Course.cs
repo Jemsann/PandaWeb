@@ -22,13 +22,18 @@ namespace PandaWeb.Models
         public string Name { get; set; }
         [Display(Name = "Utbildnings ID")]
         public int EducationPlanId { get; set; }
-        [Required(ErrorMessage = "Ett Startdatum krävs.")]
+
+		[Required(ErrorMessage = "Ett Startdatum krävs.")]
         [Display(Name = "Kurs start")]
-        public DateTime StartDate { get; set; }
-        [Required(ErrorMessage = "Ett Slutdatum krävs.")]
+		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+		public DateTime StartDate { get; set; }
+
+		[Required(ErrorMessage = "Ett Slutdatum krävs.")]
         [Display(Name = "Kurs slut")]
-        public DateTime EndDate { get; set; }
-        [Display(Name = "Kurs plan")]
+		[DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
+		public DateTime EndDate { get; set; }
+
+		[Display(Name = "Kurs plan")]
         public string CoursePlan { get; set; }
         [Display(Name = "Tidigare material")]
         public string EarlierMaterial { get; set; }
@@ -38,11 +43,7 @@ namespace PandaWeb.Models
         //länktabell till studenter
         public ICollection<Student> Students { get; set; }
 
-        //Läraren finns inte i systemet, existerar bara som en prop på en kurs?
-        [Required(ErrorMessage = "Ett lärar-ID krävs.")]
-        [Display(Name = "Lärar ID")]
-        public string TeacherId { get; set; }
-
+       
         //länktabell till utbildning 
         [Display(Name = "Utbildnings plan")]
         public EducationPlan EducationPlan { get; set; }

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<PandaWeb.ViewModels.IndexVM>
 
 @{
-    ViewBag.Title = "";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "";
+	//Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div>
     <table class="table">
@@ -33,9 +33,6 @@
                 </td>
                 <td>
                     @Html.ActionLink("Detaljer", "OneCourseDetails", "Education", new { id = item.Id }, null)
-                </td>
-                <td>
-                    @Html.ActionLink("Anmälan", "MyCourses", "Account", new { id = item.Id }, null)
                 </td>
             </tr>
         }

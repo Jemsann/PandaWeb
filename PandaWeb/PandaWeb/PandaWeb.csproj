@@ -509,7 +509,6 @@
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Education\Course.cshtml" />
     <Content Include="Views\Home\Edu.cshtml" />
-    <Content Include="Views\Education\Details.cshtml" />
     <Content Include="Views\Education\CourseDetails.cshtml" />
     <Content Include="Views\Education\OneCourseDetails.cshtml" />
     <Content Include="Views\Shared\NotFound.cshtml" />
@@ -536,6 +535,7 @@
     <Content Include="Views\Account\MyEducations.cshtml" />
     <Content Include="Views\Education\EducationsDetails.cshtml" />
     <Content Include="Views\ManageEducation\EditMeetingDate.cshtml" />
+    <Content Include="Views\Education\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
