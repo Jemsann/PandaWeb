@@ -535,6 +535,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Account\Lgusers.cshtml" />
     <Content Include="Views\Account\MyEducations.cshtml" />
+    <Content Include="Views\Education\EducationsDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
