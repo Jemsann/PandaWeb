@@ -13,7 +13,7 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 		<div class="form-group">
-			@Html.LabelForModel("Välj utbildning för kursen", htmlAttributes: new { @class = "contorl-label col-md-2" })
+			@Html.LabelForModel("Välj utbildning för studenten", htmlAttributes: new { @class = "contorl-label col-md-2" })
 			<div class="col-md-10">
 				@Html.DropDownListFor(model => model.EducationId, path, "Välj utbildning")
 			</div>
