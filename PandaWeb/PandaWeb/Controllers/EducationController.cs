@@ -10,6 +10,7 @@ using System.IO;
 using PandaWeb.ViewModels;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
+using System.Web.Security;
 
 namespace PandaWeb.Controllers
 {
@@ -36,11 +37,14 @@ namespace PandaWeb.Controllers
 		//View for students all educations
 		public ActionResult EducationsDetails()
 		{
+            //var userId = (Guid)Membership.GetUser(User.Identity.Name).ProviderUserKey;
 
-			int user = int.Parse(User.Identity.GetUserId());
+            ////return PartialView(repository.GetEducationPlan(userId));
 
-			return PartialView(repository.GetAllEduPlansViewModel(user));
-		}
+            int user = int.Parse(User.Identity.GetUserId());
+
+            return PartialView(repository.GetAllEduPlansViewModel(user));
+        }
 		
 
 		//View for specific education
