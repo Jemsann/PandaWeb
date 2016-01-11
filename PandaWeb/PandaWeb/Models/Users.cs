@@ -37,6 +37,7 @@ namespace PandaWeb.Models
         [Display(Name = "Roll")]
         public string Role { get; set; }
 
+		[Display(Name ="UtbildningsId")]
 		public int EducationId { get; set; }
 	}
 }
