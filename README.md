@@ -7,7 +7,7 @@ This is a school project about learning how to work agile in system developing.
 We are a group of six students that are going to develop a school portal for our school´s administration.
 
 # Technics
-We have worked with the repository pattern with Asp.NET MVC and Entity framework. We have also used Github, Nugget, Visual Studio, Slack and Trello.
+We have worked with the repository pattern with Asp.NET MVC and Entity framework code first. We have also used Github, Nugget, Visual Studio, MySql workbench 6.3, Azure, Slack and Trello.
 
 System requirements
 
