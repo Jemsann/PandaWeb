@@ -32,9 +32,7 @@ Web browser.
 
 #How to setup the project on your local computer.
 Go to https://github.com/Jemsann/PandaWeb which contains our project.
-Use the button to the left of "Download ZIP" which will make you download the project directly. When you press the button it will ask wich program to use for opening it, choose Visual Studio and it will open right away with our project downloaded. In Visual Studio all information will be filled in so just clone the project and sync it and you will have our solution.
-Under controllers/educationcontroller.cs in the code you will find all the directions how to populate the database locally. 
-
+Use the button to the left of "Download ZIP" which will make you download the project directly. When you press the button it will ask which program to use for opening it, choose Visual Studio and it will open right away with our project downloaded. In Visual Studio all information will be filled in so just clone the project and sync it and you will have our solution. To be able to start the project you need to populate a database which contains following tables and use the properties from the model classes. 
 
 
 #System overlay
