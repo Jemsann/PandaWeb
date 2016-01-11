@@ -474,7 +474,6 @@
     <Content Include="Scripts\ScriptsReadMe.txt" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Account\AccountReadMe.txt" />
-    <Content Include="Views\Calendar\CalendarReadMe.txt" />
     <Content Include="Views\Courses\CoursesReadMe.txt" />
     <Content Include="Views\Document\DocumentReadMe.txt" />
     <Content Include="Views\Education\EducationReadMe.txt" />
@@ -506,7 +505,6 @@
     <Content Include="Views\Document\UploadDocuments.cshtml" />
     <Content Include="Views\Home\PartialIndex.cshtml" />
     <Content Include="Views\Shared\ShowDocuments.cshtml" />
-    <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\Education\Course.cshtml" />
     <Content Include="Views\Home\Edu.cshtml" />
     <Content Include="Views\Education\CourseDetails.cshtml" />

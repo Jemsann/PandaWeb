@@ -30,6 +30,7 @@ namespace PandaWeb.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Course course = db.Course.Find(id);
+			
             if (course == null)
             {
                 return HttpNotFound();

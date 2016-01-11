@@ -12,7 +12,7 @@ namespace PandaWeb.Controllers
 	[AllowAnonymous]
 	public class AccountController : Controller
 	{
-		
+		MyDBContext db = new MyDBContext();
 		// Register account
 		public ActionResult Register()
 		{
@@ -23,21 +23,19 @@ namespace PandaWeb.Controllers
 		//This action only handels post requests.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Register(Users U)
+		public ActionResult Register([Bind(Include = "UserID,EducationId,Username,Password,ConfirmPassword,Fullname,Email,Role")] Users users)
 		{
 			if (ModelState.IsValid)
 			{
-				using (MyDBContext db = new MyDBContext())
-				{
-					U.Role = "S";
-					db.Users.Add(U);
-					db.SaveChanges();
-					ModelState.Clear();
-					U = null;
-					ViewBag.Message = "Succesfully Registration Done!";
-				}
+				users.Role = "S";
+				db.Users.Add(users);
+
+				db.SaveChanges();
+				ViewBag.Message = "Användare registrerad";
 			}
-			return View(U);
+
+			//db.SaveChanges();
+			return View(users);
 		}
 
 		//The user login action.
@@ -78,9 +76,9 @@ namespace PandaWeb.Controllers
 		{
 			MyDBContext db = new MyDBContext();
 			var role = (from r in db.Users where r.Role.Contains("L") select r).ToList();
-			
+
 			return View(role);
-			
+
 		}
 
 		// This shows the courses and educationprograms the loged in student are attending.
