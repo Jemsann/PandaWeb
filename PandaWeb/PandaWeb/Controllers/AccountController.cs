@@ -78,8 +78,9 @@ namespace PandaWeb.Controllers
 		{
 			MyDBContext db = new MyDBContext();
 			var role = (from r in db.Users where r.Role.Contains("L") select r).ToList();
+            
 			return View(role);
-
+            
 		}
 
 		// This shows the courses and educationprograms the loged in student are attending.
