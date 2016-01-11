@@ -203,13 +203,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Appointment.cs" />
-    <Compile Include="Models\CalendarContext.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Documents.cs" />
     <Compile Include="Models\EducationPlan.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IRepository.cs" />
+    <Compile Include="Models\Meeting.cs" />
     <Compile Include="Models\MyDBContext.cs" />
     <Compile Include="Models\MyDBContextRepository.cs" />
     <Compile Include="Models\MySqlHistoryContext.cs" />
@@ -536,6 +535,7 @@
     <Content Include="Views\Account\Lgusers.cshtml" />
     <Content Include="Views\Account\MyEducations.cshtml" />
     <Content Include="Views\Education\EducationsDetails.cshtml" />
+    <Content Include="Views\ManageEducation\EditMeetingDate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

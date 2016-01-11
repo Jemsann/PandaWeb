@@ -15,6 +15,6 @@ namespace PandaWeb.Models
         public string FileName { get; set; }
         public string Type { get; set; }
         public byte[] File { get; set; }
-        
-    }
+		public DateTime MeetingDate { get; set; }
+	}
 }
